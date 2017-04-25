@@ -1,0 +1,112 @@
+- platform: time_date
+  display_options:
+  - 'time'
+  - 'date'
+
+- platform: google_travel_time
+  name: Ross travel time
+  api_key: !secret google_travel_time_api_key
+  origin: device_tracker.ross_oneplusx
+  destination: zone.Home
+  options:
+    units: imperial
+
+- platform: nest
+
+- platform: darksky
+  api_key: !secret darksky_api_key
+  monitored_conditions:
+  - 'temperature'
+  - 'apparent_temperature'
+  - 'temperature_max'
+  - 'temperature_min'
+  - 'wind_speed'
+  - 'cloud_cover'
+  - 'humidity'
+  - 'precip_probability'
+
+- platform: command_line
+  name: System uptime
+  command: uptime | sed 's/.*up \([^,]*\), .*/\1/'
+
+- platform: template
+  sensors: 
+    distance_from_home:
+      value_template: '{{ states.sensor.ross_travel_time.attributes.distance }}'
+      friendly_name: 'Distance away'
+      icon_template: 'mdi:chart-bar'
+
+    heating_mode:
+      value_template: '{{ states.climate.living_room.attributes.operation_mode }}'
+      friendly_name: 'Heating mode'
+      icon_template: 'mdi:fire'
+    
+    smoke_detector:
+      value_template: '{% if is_state("binary_sensor.hallway_nest_protect_online", "on") %}online{% else %}offline{% endif %}'
+      friendly_name: Smoke/CO² detector
+      icon_template: 'mdi:nest-protect'
+
+    outside_light:
+      value_template: '{{ states.light.outside.state }}'
+      friendly_name: 'Outside light'
+      icon_template: 'mdi:lightbulb'
+
+    stairwell_lights:
+      value_template: '{{ states.light.stairwell.state }}'
+      friendly_name: 'Stairwell lights'
+      icon_template: 'mdi:lightbulb'
+
+    living_room_lights:
+      value_template: '{{ states.group.living_room_lights.state }}'
+      friendly_name: 'Living room lights'
+      icon_template: 'mdi:lamp'
+
+    computer_desk_leds:
+      value_template: '{{ states.light.computer_desk_leds.state }}'
+      friendly_name: 'Computer desk LEDs'
+      icon_template: 'mdi:lamp'
+
+    living_room_chromecast:
+      value_template: '{{ states.media_player.living_room_chromecast.state }}'
+      friendly_name: 'Living room Chromecast'
+      icon_template: 'mdi:google-chrome'
+
+    living_room_kodi:
+      value_template: '{{ states.media_player.living_room_kodi.state }}'
+      friendly_name: 'Living room Kodi'
+      icon_template: 'mdi:kodi'
+
+    bedroom_kodi:
+      value_template: '{{ states.media_player.bedroom_kodi.state }}'
+      friendly_name: 'Bedroom Kodi'
+      icon_template: 'mdi:kodi'
+
+    raspberry_pi:
+      value_template: '{% if is_state("binary_sensor.raspberry_pi", "on") %}online{% else %}offline{% endif %}'
+      friendly_name: 'Raspberry Pi'
+      icon_template: 'mdi:raspberrypi'
+
+    study_pir:
+      value_template: '{% if is_state("input_boolean.study_pir", "on") %}occupied{% else %}unoccupied{% endif %}'
+      friendly_name: 'Study'
+      icon_template: '{% if is_state("input_boolean.study_pir", "on") %}mdi:check-circle{% else %}mdi:checkbox-blank-circle-outline{% endif %}'
+
+    living_room_pir:
+      value_template: '{% if is_state("input_boolean.living_room_pir", "on") %}occupied{% else %}unoccupied{% endif %}'
+      friendly_name: 'Living room'
+      icon_template: '{% if is_state("input_boolean.living_room_pir", "on") %}mdi:check-circle{% else %}mdi:checkbox-blank-circle-outline{% endif %}'
+
+    kitchen_pir:
+      value_template: '{% if is_state("input_boolean.kitchen_pir", "on") %}occupied{% else %}unoccupied{% endif %}'
+      friendly_name: 'Kitchen'
+      icon_template: '{% if is_state("input_boolean.kitchen_pir", "on") %}mdi:check-circle{% else %}mdi:checkbox-blank-circle-outline{% endif %}'
+
+    bedroom_pir:
+      value_template: '{% if is_state("input_boolean.bedroom_pir", "on") %}occupied{% else %}unoccupied{% endif %}'
+      friendly_name: 'Bedroom'
+      icon_template: '{% if is_state("input_boolean.bedroom_pir", "on") %}mdi:check-circle{% else %}mdi:checkbox-blank-circle-outline{% endif %}'
+
+    front_door:
+      value_template: '{% if is_state("binary_sensor.front_door", "on") %}open{% else %}closed{% endif %}'
+      friendly_name: 'Front door'
+      icon_template: '{% if is_state("binary_sensor.front_door", "on") %}mdi:checkbox-blank-outline{% else %}mdi:checkbox-marked{% endif %}'      

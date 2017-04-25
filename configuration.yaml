@@ -1,0 +1,37 @@
+homeassistant:
+  name: Home
+  latitude: !secret location_latitude
+  longitude: !secret location_longitude
+  elevation: 67
+  unit_system: metric
+  time_zone: Europe/London
+  customize: !include customize.yaml
+
+config:
+frontend:
+updater:
+# discovery:
+# conversation:
+history:
+recorder:
+  purge_days: 7
+sun:
+
+climate:
+  platform: nest
+
+light: !include light.yaml
+http: !include http.yaml
+logbook: !include logbook.yaml
+binary_sensor: !include binary_sensor.yaml
+sensor: !include sensor.yaml
+device_tracker: !include device_tracker.yaml
+mqtt: !include mqtt.yaml
+notify: !include notify.yaml
+input_boolean: !include input_boolean.yaml
+zone: !include zones.yaml
+nest: !include nest.yaml
+scene: !include scene.yaml
+automation: !include_dir_merge_list automations
+group: !include group.yaml
+media_player: !include media_player.yaml

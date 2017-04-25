@@ -1,0 +1,82 @@
+sun.sun:
+  friendly_name: Sun
+  icon: 'mdi:white-balance-sunny'
+sensor.dark_sky_cloud_coverage:
+  friendly_name: Cloud coverage
+  icon: 'mdi:cloud'
+sensor.dark_sky_humidity:
+  friendly_name: Outdoor humidity
+  icon: 'mdi:water'
+sensor.dark_sky_precip_probability:
+  friendly_name: Precipitation probability
+  icon: 'mdi:weather-rainy'
+sensor.dark_sky_temperature:
+  friendly_name: Outdoor temperature
+  icon: 'mdi:thermometer'
+sensor.dark_sky_apparent_temperature:
+  friendly_name: Feels like temperature
+  icon: 'mdi:thermometer'
+sensor.dark_sky_daily_high_temperature:
+  friendly_name: Daily high temperature
+  icon: 'mdi:thermometer'
+sensor.dark_sky_daily_low_temperature:
+  friendly_name: Daily low temperature
+  icon: 'mdi:thermometer'
+sensor.dark_sky_wind_speed:
+  friendly_name: Wind speed
+  icon: 'mdi:weather-windy'
+sensor.living_room_thermostat_humidity:
+  friendly_name: Indoor humidity
+  icon: 'mdi:water'
+sensor.living_room_thermostat_hvac_state:
+  hidden: true
+sensor.living_room_thermostat_operation_mode:
+  hidden: true
+sensor.living_room_thermostat_target:
+  hidden: true
+sensor.living_room_thermostat_temperature:
+  friendly_name: Indoor temperature
+  icon: 'mdi:thermometer'
+binary_sensor.living_room_thermostat_fan:
+  hidden: true
+binary_sensor.living_room_thermostat_has_leaf:
+  hidden: true
+binary_sensor.living_room_thermostat_is_locked:
+  hidden: true
+binary_sensor.living_room_thermostat_is_using_emergency_heat:
+  hidden: true
+binary_sensor.living_room_thermostat_online:
+  hidden: true
+binary_sensor.hallway_nest_protect_online:
+  hidden: true
+sensor.hallway_nest_protect_battery_health:
+  hidden: true
+sensor.hallway_nest_protect_co_status:
+  hidden: true
+sensor.hallway_nest_protect_smoke_status:
+  hidden: true
+light.stairwell:
+  hidden: true
+light.living_room:
+  hidden: true
+light.front_door:
+  hidden: true
+media_player.Bedroom_Kodi:
+  friendly_name: Bedroom Kodi
+media_player.Living_room_Kodi:
+  friendly_name: Living Room Kodi
+media_player.shield:
+  friendly_name: Living Room Chromecast
+sensor.ross_travel_time:
+  friendly_name: Travel time
+  icon: 'mdi:clock-fast'
+sensor.system_uptime:
+    icon: 'mdi:timer'
+
+# Default groups are hidden by default
+group.all_automations:
+  friendly_name: Automations
+  hidden: false
+group.all_lights:
+  friendly_name: Lights
+  hidden: false

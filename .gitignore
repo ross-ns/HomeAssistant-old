@@ -1,0 +1,13 @@
+/.vscode
+.HA_VERSION
+.uuid
+known_devices.yaml
+zones.yaml
+secrets.yaml
+phue.conf
+nest.conf
+www/ross.jpg
+TLS/privkey.pem
+TLS/fullchain.pem
+home-assistant_v2.db
+home-assistant.log

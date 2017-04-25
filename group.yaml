@@ -1,0 +1,122 @@
+# Views
+# Rememeber! "view: yes" means it will appear as a view (tab) rather than a card.
+default_view:
+  name: Status
+  view: yes
+  entities:
+  - group.status_group
+  - group.rooms
+  - group.kill_switch
+
+people:
+  name: People
+  view: yes
+  entities:
+  - group.people_tracker
+
+heating:
+  name: Heating
+  view: yes
+  entities:
+  - climate.living_room
+  - group.weather_conditions
+
+lighting:
+  name: Lights
+  view: yes
+  entities:
+  - group.all_lights
+  - group.scenes
+
+media:
+  name: Media
+  view: yes
+  entities:
+  - group.media_players
+
+automations:
+  name: Automations
+  view: yes
+  control: hidden
+  entities:
+  - group.all_automations
+
+# Groups
+status_group:
+  name: Status
+  entities:
+  - device_tracker.ross_oneplusx
+  - sensor.heating_mode
+  - sensor.smoke_detector
+  - sensor.raspberry_pi
+  - sensor.outside_light
+  - sensor.stairwell_lights
+  - sensor.living_room_lights
+  - sensor.computer_desk_leds
+# - sensor.living_room_chromecast - Add this back in when Chromecast discovery is fixed
+  - sensor.living_room_kodi
+  - sensor.bedroom_kodi
+  - sensor.system_uptime
+  - sensor.time
+  - sensor.date
+
+kill_switch:
+  name: Kill switch
+  entities:
+  - input_boolean.kill_switch
+
+living_room_lights:
+  name: Living room lights
+  entities:
+  - light.lamp
+  - light.tv_leds
+
+rooms:
+  name: Rooms
+  entities:
+  - sensor.front_door
+  - sensor.living_room_pir
+  - sensor.kitchen_pir
+  - sensor.bedroom_pir
+  - sensor.study_pir
+
+scenes:
+  name: Scenes
+  entities:
+  - scene.warm
+  - scene.movie
+
+people_tracker:
+  name: People tracker
+  entities:
+  - device_tracker.ross_oneplusx
+  - sensor.ross_travel_time
+  - sensor.distance_from_home
+
+# time_date:
+#   name: Time and date
+#   entities:
+#   - sensor.time
+#   - sensor.date
+
+media_players:
+  name: Media players
+  entities:
+  - media_player.shield
+  - media_player.living_room_kodi
+  - media_player.bedroom_kodi
+
+weather_conditions:
+  name: Weather conditions
+  entities:
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_daily_high_temperature
+  - sensor.dark_sky_daily_low_temperature
+  - sensor.dark_sky_apparent_temperature
+  - sensor.living_room_thermostat_temperature
+  - sensor.dark_sky_cloud_coverage
+  - sensor.dark_sky_precip_probability
+  - sensor.dark_sky_wind_speed
+  - sensor.dark_sky_humidity
+  - sensor.living_room_thermostat_humidity
+  - sun.sun

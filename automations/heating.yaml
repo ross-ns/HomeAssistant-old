@@ -1,0 +1,147 @@
+# On periods
+- alias: Heating - on weekday mornings
+  trigger:
+  - platform: time
+    after: '6:15'
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    - condition: or
+      conditions:
+      - condition: template
+        value_template: '{{ states.climate.living_room.attributes.operation_mode == "heat" }}'
+      - condition: template
+        value_template: '{{ states.climate.living_room.attributes.operation_mode == "eco" }}'
+    - condition: or
+      conditions:
+      - condition: zone
+        entity_id: device_tracker.ross_oneplusx
+        zone: 'zone.home'
+      - condition: zone
+        entity_id: device_tracker.ross_oneplusx
+        zone: 'zone.kennys'
+  action:
+  - service: climate.set_operation_mode
+    entity_id: climate.living_room
+    data:
+      operation_mode: heat
+  - service: climate.set_temperature
+    entity_id: climate.living_room
+    data:
+      temperature: 19
+  - service: notify.telegram
+    data:
+      message: "Heating has been set to 19°C."
+
+- alias: Heating - on weekend mornings
+  trigger:
+  - platform: time
+    after: '8:00'
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      weekday:
+      - sat
+      - sun
+    - condition: template
+      value_template: '{{ states.climate.living_room.attributes.operation_mode == "heat" }}'      
+    - condition: zone
+      entity_id: device_tracker.ross_oneplusx
+      zone: 'zone.home'
+  action:
+  - service: climate.set_temperature
+    entity_id: climate.living_room
+    data:
+      temperature: 19
+
+- alias: Heating - on in the evening
+  trigger:
+  - platform: time
+    after: '16:45'
+  - platform: numeric_state
+    entity_id: sensor.ross_travel_time
+    below: 45
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: '16:45'
+      before: '18:30'
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    - condition: template
+      value_template: "{{ states.climate.living_room.attributes.operation_mode == 'eco' }}"
+    - condition: numeric_state
+      entity_id: sensor.ross_travel_time
+      below: 45
+  action:
+  - service: climate.set_operation_mode
+    entity_id: climate.living_room
+    data:
+      operation_mode: heat
+  - service: climate.set_temperature
+    entity_id: climate.living_room
+    data:
+      temperature: 19
+  - service: notify.telegram
+    data:
+      message: "Heating has been set to 19°C."
+
+# Notify me if the heating wont be on when I get home due to travel time
+- alias: Heating - notify that heating is not on
+  hide_entity: true
+  trigger:
+  - platform: time
+    after: '18:30'
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    - condition: numeric_state
+      entity_id: sensor.ross_travel_time
+      above: 45
+  action:
+  - service: notify.telegram
+    data:
+      message: "The heating will NOT be on when you get home because you are still {{ states.sensor.ross_from_home.state }} minutes away. The current indoor temperature is {{ states.climate.living_room.attributes.current_temperature }}°C and outside is {{ states.sensor.dark_sky_temperature.state }}°C."
+
+# Turn the heating up if it's cold outside in the evening
+- alias: Heating - warmer in the evening if it's cold outside
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.dark_sky_temperature
+    below: 7
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: '21:30'
+      before: '23:59'
+    - condition: template
+      value_template: "{{ states.climate.living_room.attributes.operation_mode == 'heat' }}"
+    - condition: template
+      value_template: "{{ states.climate.living_room.attributes.temperature < 21 }}"
+  action:
+  - service: climate.set_temperature
+    entity_id: climate.living_room
+    data:
+      temperature: 21

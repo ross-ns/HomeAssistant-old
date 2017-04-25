@@ -1,0 +1,18 @@
+- platform: kodi
+  name: Living_room_Kodi
+  host: 192.168.0.17
+  enable_websocket: false
+  turn_off_action: shutdown
+  username: !secret kodi_username
+  password: !secret kodi_password
+
+- platform: cast
+  name: Living_room_chromecast
+  host: 192.168.0.17
+
+- platform: kodi
+  name: Bedroom_Kodi
+  host: 192.168.0.11
+  turn_off_action: shutdown
+  username: !secret kodi_username
+  password: !secret kodi_password

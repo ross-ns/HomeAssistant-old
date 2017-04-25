@@ -1,0 +1,46 @@
+- platform: mqtt
+  name: "Living room PIR"
+  state_topic: "/mqtt-gpio-monitor/out/11"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+  device_class: occupancy
+
+- platform: mqtt
+  name: "Study PIR"
+  state_topic: "/mqtt-gpio-monitor/out/12"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+  device_class: occupancy
+
+- platform: mqtt
+  name: "Kitchen PIR"
+  state_topic: "/mqtt-gpio-monitor/out/13"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+  device_class: occupancy
+
+- platform: mqtt
+  name: "Bedroom PIR"
+  state_topic: "/mqtt-gpio-monitor/out/15"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+  device_class: occupancy
+
+- platform: mqtt
+  name: "Front door"
+  state_topic: "/mqtt-gpio-monitor/out/16"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+  device_class: opening
+
+- platform: command_line
+  name: Raspberry Pi
+  command: ping -W 1 -c 1 192.168.0.151 > /dev/null 2>&1 && echo online || echo offline
+  device_class: connectivity
+  payload_on: "online"
+  payload_off: "offline"

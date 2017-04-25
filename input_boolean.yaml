@@ -1,0 +1,20 @@
+study_pir:
+  name: Study
+  initial: off
+
+living_room_pir:
+  name: Living room
+  initial: off
+
+kitchen_pir:
+  name: Kitchen
+  initial: off
+
+bedroom_pir:
+  name: Bedroom
+  initial: off
+
+kill_switch:
+  name: Disable all automations
+  initial: off
+  icon: 'mdi:alert-box'

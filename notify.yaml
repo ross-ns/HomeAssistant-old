@@ -1,0 +1,22 @@
+- name: Living_room_Kodi
+  platform: kodi
+  host: 192.168.0.17
+  username: !secret kodi_username
+  password: !secret kodi_password
+
+- name: Bedroom_Kodi
+  platform: kodi
+  host: 192.168.0.11
+  username: !secret kodi_username
+  password: !secret kodi_password
+
+- name: telegram
+  platform: telegram
+  api_key: !secret telegram_api_key
+  chat_id: !secret telegram_chat_id
+
+- name: All_Kodi
+  platform: group
+  services:
+    - service: living_room_kodi
+    - service: bedroom_kodi

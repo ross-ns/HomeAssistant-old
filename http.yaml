@@ -1,0 +1,3 @@
+  api_password: !secret http_password
+  ssl_certificate: /home/ross/.homeassistant/TLS/fullchain.pem
+  ssl_key: /home/ross/.homeassistant/TLS/privkey.pem

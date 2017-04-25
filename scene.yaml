@@ -1,0 +1,24 @@
+- name: Movie
+  entities: 
+    light.lamp:
+      state: on
+      brightness: 134
+      color_temp: 443
+      xy_color: [ 0.6564, 0.3125 ]
+      transition: 2
+    light.tv_leds:
+      state: on
+      brightness: 20
+      rgb_color: [ 91, 0, 14 ]
+
+- name: Warm
+  entities: 
+    light.lamp:
+      state: on
+      brightness: 223
+      color_temp: 443
+      xy_color: [ 0.5015, 0.4153 ]
+    light.tv_leds:
+      state: on
+      brightness: 60
+      rgb_color: [ 255, 123, 9 ]
