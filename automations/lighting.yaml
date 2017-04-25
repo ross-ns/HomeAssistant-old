@@ -90,7 +90,7 @@
   - service: scene.turn_on
     entity_id: scene.warm
 
-# If the TV LEDs are on when manually powered on and the sun is still up, turn the LEDs off.
+# If the TV LEDs are on when manually powered on but the sun is still up, turn the LEDs off.
 # This is required because the LEDs remember their previous state when manually power cycled.
 - alias: TV LEDs - set state off
   hide_entity: true
@@ -105,7 +105,7 @@
   - service: light.turn_off
     entity_id: light.tv_leds
 
-# If the TV LEDs are off when manually powered on but it is sunset, turn the LEDs on.
+# If the TV LEDs are off when manually powered on but it is after sunset, turn the LEDs on.
 - alias: TV LEDs - set state on
   hide_entity: true
   trigger:
