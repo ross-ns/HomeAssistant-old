@@ -127,7 +127,7 @@
   - service: light.turn_on
     entity_id: light.tv_leds
 
-# Computer desk LEDs
+# Study desk LEDs
 - alias: Lights - Computer desk LEDs on
   trigger:
   - platform: state
