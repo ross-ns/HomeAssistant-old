@@ -10,10 +10,10 @@
   username: !secret kodi_username
   password: !secret kodi_password
 
-- name: telegram
-  platform: telegram
-  api_key: !secret telegram_api_key
-  chat_id: !secret telegram_chat_id
+#- name: telegram
+#  platform: telegram
+#  api_key: !secret telegram_api_key
+#  chat_id: !secret telegram_chat_id
 
 - name: All_Kodi
   platform: group
