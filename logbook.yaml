@@ -10,6 +10,7 @@
     - automation.study_unoccupied
     - binary_sensor.bedroom_pir
     - binary_sensor.kitchen_pir
+    - binary_sensor.front_door
     - binary_sensor.living_room_pir
     - binary_sensor.study_pir
     - group.default_view
