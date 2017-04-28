@@ -14,10 +14,12 @@
     - binary_sensor.living_room_pir
     - binary_sensor.study_pir
     - group.default_view
+    - group.kill_switch
     - group.living_room_lights
+    - group.media_players
     - group.people_tracker
     - group.rooms
-    - group.status
+    - group.status_group
     - input_boolean.bedroom_pir
     - input_boolean.kitchen_pir
     - input_boolean.living_room_pir
