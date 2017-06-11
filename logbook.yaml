@@ -5,7 +5,7 @@
     - automation.kitchen_occupied
     - automation.kitchen_unoccupied
     - automation.living_room_occupied
-    - automation.living_room_unccupied
+    - automation.living_room_unoccupied
     - automation.study_occupied
     - automation.study_unoccupied
     - binary_sensor.bedroom_pir
@@ -25,6 +25,7 @@
     - input_boolean.living_room_pir
     - input_boolean.study_pir
     - sensor.bedroom_kodi
+    - sensor.computer_desk_leds
     - sensor.date
     - sensor.distance_from_home
     - sensor.heating_mode

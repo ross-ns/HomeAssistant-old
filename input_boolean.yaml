@@ -13,8 +13,3 @@ kitchen_pir:
 bedroom_pir:
   name: Bedroom
   initial: off
-
-kill_switch:
-  name: Disable all automations
-  initial: off
-  icon: 'mdi:alert-box'

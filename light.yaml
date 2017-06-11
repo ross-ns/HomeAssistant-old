@@ -4,6 +4,10 @@
 
   - platform: flux_led
     devices:
+      192.168.0.14:
+        name: Twig lights
+        protocol: 'ledenet'
+        mode: "rgbw"
       192.168.0.15:
         name: TV LEDs
 
@@ -11,4 +15,4 @@
     devices:
       192.168.0.20:
         name: Computer desk LEDs
-        transition: 1500
+        transition: 1000

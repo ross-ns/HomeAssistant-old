@@ -16,22 +16,21 @@ history:
 recorder:
   purge_days: 7
 sun:
-
 climate:
   platform: nest
-
-light: !include light.yaml
-http: !include http.yaml
-logbook: !include logbook.yaml
-binary_sensor: !include binary_sensor.yaml
-sensor: !include sensor.yaml
-device_tracker: !include device_tracker.yaml
-mqtt: !include mqtt.yaml
-notify: !include notify.yaml
-input_boolean: !include input_boolean.yaml
-zone: !include zones.yaml
-nest: !include nest.yaml
-scene: !include scene.yaml
 automation: !include_dir_merge_list automations
+binary_sensor: !include binary_sensor.yaml
+device_tracker: !include device_tracker.yaml
 group: !include group.yaml
+http: !include http.yaml
+input_boolean: !include input_boolean.yaml
+light: !include light.yaml
+logbook: !include logbook.yaml
 media_player: !include media_player.yaml
+mqtt: !include mqtt.yaml
+nest: !include nest.yaml
+notify: !include notify.yaml
+scene: !include scene.yaml
+sensor: !include sensor.yaml
+telegram_bot: !include telegram_bot.yaml
+zone: !include zones.yaml

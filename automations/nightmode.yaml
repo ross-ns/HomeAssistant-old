@@ -1,7 +1,7 @@
 - alias: Night mode
   trigger:
   - platform: time
-    after: '23:30'    
+    at: '23:30'    
   - platform: state
     entity_id: sensor.living_room_pir
     to: 'unoccupied'
