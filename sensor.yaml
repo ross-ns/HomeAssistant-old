@@ -108,7 +108,7 @@
 
 - platform: rest
   resource: https://api.pokehuntr.com/api/gym/info?id=58bc2742f1bf6e4d4c525c4b
-  name: Markinch church
+  name: Markinch churcH
   value_template: >
     {% if value_json.team_id == 1 %}
     mystic
