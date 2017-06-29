@@ -105,39 +105,3 @@
       value_template: '{% if is_state("binary_sensor.front_door", "on") %}open{% else %}closed{% endif %}'
       friendly_name: 'Front door'
       icon_template: '{% if is_state("binary_sensor.front_door", "on") %}mdi:checkbox-blank-outline{% else %}mdi:checkbox-marked{% endif %}'
-
-- platform: rest
-  resource: https://api.pokehuntr.com/api/gym/info?id=58bc2742f1bf6e4d4c525c4b
-  name: Markinch church
-  value_template: >
-    {% if value_json.team_id == 1 %}
-    mystic
-    {% elif value_json.team_id == 2 %}
-    valor
-    {% elif value_json.team_id == 3 %}
-    instinct
-    {% endif %}
-
-- platform: rest
-  resource: https://api.pokehuntr.com/api/gym/info?id=589a6664a00565671b69adda
-  name: Golden acorn
-  value_template: >
-    {% if value_json.team_id == 1 %}
-    mystic
-    {% elif value_json.team_id == 2 %}
-    valor
-    {% elif value_json.team_id == 3 %}
-    instinct
-    {% endif %}
-
-- platform: rest
-  resource: https://api.pokehuntr.com/api/gym/info?id=58905bf2a00565671ba1dfe2
-  name: Rosyth church
-  value_template: >
-    {% if value_json.team_id == 1 %}
-    mystic
-    {% elif value_json.team_id == 2 %}
-    valor
-    {% elif value_json.team_id == 3 %}
-    instinct
-    {% endif %}
