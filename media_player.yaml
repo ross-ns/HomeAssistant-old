@@ -1,7 +1,6 @@
 - platform: kodi
   name: Living_room_Kodi
   host: 192.168.0.17
-  enable_websocket: false
   turn_off_action: shutdown
   username: !secret kodi_username
   password: !secret kodi_password
