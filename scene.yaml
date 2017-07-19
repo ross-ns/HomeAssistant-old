@@ -3,7 +3,6 @@
     light.lamp:
       state: on
       brightness: 134
-      color_temp: 443
       xy_color: [ 0.6564, 0.3125 ]
       transition: 2
     light.tv_leds:
@@ -16,7 +15,6 @@
     light.lamp:
       state: on
       brightness: 223
-      color_temp: 443
       xy_color: [ 0.5015, 0.4153 ]
     light.tv_leds:
       state: on
