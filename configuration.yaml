@@ -12,6 +12,7 @@ frontend:
 updater:
 # discovery:
 # conversation:
+hassio:
 history:
 recorder:
   purge_days: 7
