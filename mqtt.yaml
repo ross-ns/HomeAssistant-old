@@ -1,7 +1,7 @@
-  broker: 127.0.0.1
+  broker: 192.168.0.6
   port: 1883
   client_id: home-assistant-1
   keepalive: 60
   username: !secret mqtt_username
   password: !secret mqtt_password
-  certificate: /etc/mosquitto/TLS/ca.crt
+  certificate: mosquitto.crt
