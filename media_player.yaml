@@ -1,7 +1,6 @@
 - platform: kodi
   name: Living_room_Kodi
   host: 192.168.0.17
-  turn_off_action: shutdown
   username: !secret kodi_username
   password: !secret kodi_password
 
@@ -12,6 +11,5 @@
 - platform: kodi
   name: Bedroom_Kodi
   host: 192.168.0.11
-  turn_off_action: shutdown
   username: !secret kodi_username
   password: !secret kodi_password
