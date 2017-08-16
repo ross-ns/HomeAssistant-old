@@ -1,16 +1,3 @@
-# The following automation triggers when HA starts. It publishes an MQTT payload which the
-# MQTT GPIO script running on the Raspberry Pi is subscribed to. The script will then re-publish
-# all of the GPIO pin states to keep the PIR and door switch states consistent.
-- alias: Refresh Raspberry PI MQTT topics
-  trigger:
-  - platform: event
-    event_type: homeassistant_start
-  action:
-  - service: mqtt.publish
-    data_template:
-      topic: "/mqtt-gpio-monitor/refresh"
-      payload: "1"
-
 - alias: Home Assistant - update notifications
   hide_entity: true
   trigger:
