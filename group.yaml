@@ -45,7 +45,7 @@ automations:
 status_group:
   name: Status
   entities:
-  - device_tracker.ross_oneplusx
+  - device_tracker.ross_phone
   - sensor.heating_mode
   - sensor.smoke_detector
   - sensor.raspberry_pi
@@ -84,7 +84,7 @@ scenes:
 people_tracker:
   name: People tracker
   entities:
-  - device_tracker.ross_oneplusx
+  - device_tracker.ross_phone
   - sensor.ross_travel_time
   - sensor.distance_from_home
 

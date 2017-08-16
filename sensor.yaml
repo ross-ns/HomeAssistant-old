@@ -6,7 +6,7 @@
 - platform: google_travel_time
   name: Ross travel time
   api_key: !secret google_travel_time_api_key
-  origin: device_tracker.ross_oneplusx
+  origin: device_tracker.ross_phone
   destination: zone.Home
   options:
     units: imperial
