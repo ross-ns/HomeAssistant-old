@@ -38,19 +38,3 @@
     data:
       title: "Home Assistant"
       message: "Lights off and heating set to low"
-
-- alias: Night mode lighting
-  trigger: 
-  - platform: state
-    entity_id: sensor.living_room_pir
-    to: 'occupied'
-  condition:
-    condition: and
-    conditions:
-    - condition: time
-      after: '23:30'
-    - condition: sun
-      before: sunrise
-  action:
-  - service: light.turn_on
-    entity_id: light.lamp
