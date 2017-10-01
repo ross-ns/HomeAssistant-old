@@ -55,6 +55,8 @@ sensor.hallway_nest_protect_co_status:
   hidden: true
 sensor.hallway_nest_protect_smoke_status:
   hidden: true
+light.all_hue_lights:
+  hidden: true
 light.stairwell:
   hidden: true
 light.living_room:
