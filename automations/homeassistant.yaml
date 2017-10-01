@@ -7,3 +7,13 @@
     service: notify.telegram
     data:
       message: 'There is a new Home Assistant release available.'
+
+- alias: Refresh Raspberry PI MQTT topics
+  trigger:
+  - platform: event
+    event_type: homeassistant_start
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: "/mqtt-gpio-monitor/refresh"
+      payload: "1"
