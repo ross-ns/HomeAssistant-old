@@ -54,7 +54,7 @@
     stairwell_lights:
       value_template: '{{ states.light.stairwell.state }}'
       friendly_name: 'Stairwell lights'
-      icon_template: '{% if is_state("light.outside", "on") %}mdi:lightbulb-on{% else %}mdi:lightbulb-outline{% endif %}'
+      icon_template: '{% if is_state("light.stairwell", "on") %}mdi:lightbulb-on{% else %}mdi:lightbulb-outline{% endif %}'
 
     living_room_lights:
       value_template: '{{ states.group.living_room_lights.state }}'
