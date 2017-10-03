@@ -3,10 +3,10 @@ sun.sun:
   icon: 'mdi:white-balance-sunny'
 sensor.dark_sky_cloud_coverage:
   friendly_name: Cloud coverage
-  icon: 'mdi:cloud'
+  icon: 'mdi:weather-cloudy'
 sensor.dark_sky_humidity:
   friendly_name: Outdoor humidity
-  icon: 'mdi:water'
+  icon: 'mdi:water-percent'
 sensor.dark_sky_precip_probability:
   friendly_name: Precipitation probability
   icon: 'mdi:weather-rainy'
@@ -27,7 +27,7 @@ sensor.dark_sky_wind_speed:
   icon: 'mdi:weather-windy'
 sensor.living_room_thermostat_humidity:
   friendly_name: Indoor humidity
-  icon: 'mdi:water'
+  icon: 'mdi:water-percent'
 sensor.living_room_thermostat_hvac_state:
   hidden: true
 sensor.living_room_thermostat_operation_mode:
@@ -71,7 +71,7 @@ media_player.shield:
   friendly_name: Living Room Chromecast
 sensor.ross_travel_time:
   friendly_name: Travel time
-  icon: 'mdi:clock-fast'
+  icon: 'mdi:car-side'
 sensor.system_uptime:
     icon: 'mdi:timer'
 
