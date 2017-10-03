@@ -26,10 +26,10 @@
   - service: climate.set_temperature
     entity_id: climate.living_room
     data:
-      temperature: 19
+      temperature: 20
   - service: notify.telegram
     data:
-      message: "Heating has been set to 19°C."
+      message: "Heating has been set to 20°C."
 
 - alias: Heating - on weekend mornings
   trigger:
@@ -51,7 +51,7 @@
   - service: climate.set_temperature
     entity_id: climate.living_room
     data:
-      temperature: 19
+      temperature: 20
 
 - alias: Heating - on in the evening
   trigger:
@@ -85,10 +85,10 @@
   - service: climate.set_temperature
     entity_id: climate.living_room
     data:
-      temperature: 19
+      temperature: 20
   - service: notify.telegram
     data:
-      message: "Heating has been set to 19°C."
+      message: "Heating has been set to 20°C."
 
 # Notify me if the heating wont be on when I get home due to travel time
 - alias: Heating - notify that heating is not on
@@ -130,9 +130,9 @@
     - condition: template
       value_template: "{{ states.climate.living_room.attributes.operation_mode == 'heat' }}"
     - condition: template
-      value_template: "{{ states.climate.living_room.attributes.temperature < 21 }}"
+      value_template: "{{ states.climate.living_room.attributes.temperature < 22 }}"
   action:
   - service: climate.set_temperature
     entity_id: climate.living_room
     data:
-      temperature: 21
+      temperature: 22
