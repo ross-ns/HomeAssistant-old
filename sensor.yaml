@@ -78,7 +78,7 @@
 
     daynight_mode:
       value_template: '{% if is_state("input_boolean.daynight_mode", "on") %}night{% else %}day{% endif %}'
-      friendly_name: 'Mode'
+      friendly_name: 'System mode'
       icon_template: '{% if is_state("input_boolean.daynight_mode", "on") %}mdi:weather-night{% else %}mdi:weather-sunny{% endif %}'
 
     raspberry_pi:
