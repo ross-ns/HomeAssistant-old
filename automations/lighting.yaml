@@ -126,8 +126,8 @@
     - condition: sun
       after: sunset
   action:
-  - service: light.turn_on
-    entity_id: light.tv_leds
+  - service: scene.turn_on
+    entity_id: scene.warm
 
 # Study desk LEDs
 - alias: Lights - Computer desk LEDs on
