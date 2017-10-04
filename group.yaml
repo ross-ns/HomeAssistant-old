@@ -80,6 +80,7 @@ scenes:
   entities:
   - scene.warm
   - scene.movie
+  - scene.emergency
 
 people_tracker:
   name: People tracker

@@ -20,3 +20,17 @@
       state: on
       brightness: 60
       rgb_color: [ 255, 123, 9 ]
+
+- name: Emergency
+  entities:
+    light.lamp:
+      state: on
+      brightness: 254
+      xy_color: [ 0.6695,0.326 ]
+      flash: long
+    light.tv_leds:
+      state: on
+      effect: red_fade
+    light.computer_desk_leds:
+      state: on
+      effect: Alarm
