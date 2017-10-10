@@ -15,5 +15,5 @@ bedroom_pir:
   initial: off
 
 daynight_mode:
-  name: daynight_mode
+  name: Day/night mode
   initial: off
