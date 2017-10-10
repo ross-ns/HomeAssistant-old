@@ -15,7 +15,8 @@ updater:
 hassio:
 history:
 recorder:
-  purge_days: 7
+  purge_interval: 2
+  purge_keep_days: 7
 sun:
 climate:
   platform: nest
