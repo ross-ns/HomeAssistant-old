@@ -20,6 +20,7 @@
     - group.people_tracker
     - group.rooms
     - group.status_group
+    - input_boolean.daynight_mode
     - input_boolean.bedroom_pir
     - input_boolean.kitchen_pir
     - input_boolean.living_room_pir
