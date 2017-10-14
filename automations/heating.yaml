@@ -26,10 +26,10 @@
   - service: climate.set_temperature
     entity_id: climate.living_room
     data:
-      temperature: 20
+      temperature: 18
   - service: notify.telegram
     data:
-      message: "Heating has been set to 20°C."
+      message: "Heating has been set to 18°C."
 
 - alias: Heating - on weekend mornings
   trigger:
