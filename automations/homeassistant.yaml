@@ -10,8 +10,8 @@
 
 - alias: Refresh Raspberry PI MQTT topics
   trigger:
-  - platform: event
-    event_type: homeassistant_start
+  - platform: homeassistant
+    event: start
   action:
   - service: mqtt.publish
     data_template:
