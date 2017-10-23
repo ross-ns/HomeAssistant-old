@@ -138,6 +138,7 @@
       temperature: 22
 
 - alias: Heating - extended away
+  trigger:
   - platform: state
     entity_id: device_tracker.ross_phone
     from: 'home'
