@@ -136,3 +136,19 @@
     entity_id: climate.living_room
     data:
       temperature: 22
+
+- alias: Heating - extended away
+  - platform: state
+    entity_id: device_tracker.ross_phone
+    from: 'home'
+    to: 'not_home'
+    for:
+      hours: 16
+  condition:
+  - condition: template
+    value_template: '{{ states.climate.living_room.attributes.operation_mode == "eco" }}'
+  action:
+  - service: climate.set_operation_mode
+    entity_id: climate.living_room
+    data:
+      temperature: 10
