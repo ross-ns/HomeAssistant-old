@@ -55,7 +55,7 @@ status_group:
 # - sensor.living_room_chromecast - Add this back in when Chromecast discovery is fixed
   - sensor.living_room_kodi
   - sensor.bedroom_kodi
-  - sensor.system_uptime
+  - sensor.uptime
   - sensor.time
   - sensor.date
 

@@ -72,7 +72,8 @@ media_player.shield:
 sensor.ross_travel_time:
   friendly_name: Travel time
   icon: 'mdi:car-side'
-sensor.system_uptime:
+sensor.uptime:
+    friendly_name: System uptime
     icon: 'mdi:timer'
 
 # Default groups are hidden by default

@@ -25,9 +25,7 @@
   - 'humidity'
   - 'precip_probability'
 
-- platform: command_line
-  name: System uptime
-  command: uptime | sed 's/.*up \([^,]*\), .*/\1/'
+- platform: uptime
 
 - platform: template
   sensors: 
