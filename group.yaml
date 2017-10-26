@@ -17,8 +17,9 @@ heating:
   name: Heating
   view: yes
   entities:
-  - climate.living_room
   - group.weather_conditions
+  - group.heating_control
+  - group.weather_cam
 
 lighting:
   name: Lights
@@ -116,3 +117,12 @@ weather_conditions:
   - sensor.dark_sky_humidity
   - sensor.living_room_thermostat_humidity
   - sun.sun
+
+heating_control:
+  name: Heating control
+  entities: climate.living_room
+
+weather_cam:
+  name: Weather cam
+  entities:
+  - camera.fife_airport_weather
