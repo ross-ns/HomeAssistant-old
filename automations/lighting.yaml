@@ -24,6 +24,7 @@
 
 # Hacky automation for outside light sometimes not turning on
 - alias: Lights - outside try to switch on again
+  initial_state: false
   trigger:
   - platform: time
     minutes: 1
