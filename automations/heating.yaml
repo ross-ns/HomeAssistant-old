@@ -51,7 +51,26 @@
   - service: climate.set_temperature
     entity_id: climate.living_room
     data:
+      temperature: 18
+  - service: automation.turn_on
+    entity_id: automation.heating__raise_temp_weekend_when_i_get_up
+
+- alias: Heating - raise temp weekend when I get up
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: sensor.kitchen_pir
+    to: 'occupied'
+  condition:
+  - condition: template
+    value_template: "{{ states.climate.living_room.attributes.temperature < 20 }}"
+  action:
+  - service: climate.set_temperature
+    entity_id: climate.living_room
+    data:
       temperature: 20
+  - service: automation.turn_off
+    entity_id: automation.heating__raise_temp_weekend_when_i_get_up
 
 - alias: Heating - on in the evening
   trigger:
