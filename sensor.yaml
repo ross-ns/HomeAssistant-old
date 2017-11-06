@@ -25,6 +25,9 @@
   - 'humidity'
   - 'precip_probability'
 
+- platform: season
+  type: meteorological
+
 - platform: uptime
 
 - platform: template
