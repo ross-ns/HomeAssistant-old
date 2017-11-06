@@ -1,0 +1,37 @@
+# Study desk LEDs
+- alias: Lights - Computer desk LEDs on
+  trigger:
+  - platform: state
+    entity_id: light.computer_desk_leds
+    from: 'unavailable'
+  - platform: state
+    entity_id: sensor.study_pir
+    to: 'occupied'
+  - platform: sun
+    event: sunset
+    offset: '-2:00:00'
+  condition:
+  - condition: and
+    conditions:
+    - condition: sun
+      after: sunset
+      after_offset: '-2:00:00'
+    - condition: state
+      entity_id: sensor.study_pir
+      state: 'occupied'
+  action:
+  - service: light.turn_on
+    entity_id: light.computer_desk_leds
+
+- alias: Lights - Computer desk LEDs off
+  trigger:
+  - platform: state
+    entity_id: sensor.study_pir
+    to: 'unoccupied'
+  condition:
+  - condition: state
+    entity_id: light.computer_desk_leds
+    state: 'on'
+  action:
+  - service: light.turn_off
+    entity_id: light.computer_desk_leds

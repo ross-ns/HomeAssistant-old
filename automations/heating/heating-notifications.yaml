@@ -1,0 +1,50 @@
+# Notify me if the heating wont be on when I get home due to travel time
+- alias: Heating - notify that heating is not on
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: '18:30'
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    - condition: numeric_state
+      entity_id: sensor.ross_travel_time
+      above: 45
+  action:
+  - service: notify.telegram
+    data:
+      message: "The heating will NOT be on when you get home because you are still {{ states.sensor.ross_from_home.state }} minutes away. The current indoor temperature is {{ states.climate.living_room.attributes.current_temperature }}°C and outside is {{ states.sensor.dark_sky_temperature.state }}°C."
+
+# Notify me if I leave the heating off when away for an hour during autumn and winter
+- alias: Heating - notify heating has been left off
+  trigger:
+  - platform: state
+    entity_id: device_tracker.ross_phone
+    from: 'not_home'
+    to: 'home'
+    for:
+      hours: 1
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ states.climate.living_room.attributes.operation_mode == 'heat' }}"
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: sensor.season
+        state: 'autumn'
+      - condition: state
+        entity_id: sensor.season
+        state: 'winter'
+  action:
+  - service: notify.telegram
+    data:
+      message: "Remember: you have left the heating off!"

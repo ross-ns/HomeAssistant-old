@@ -1,0 +1,39 @@
+# Turn the heating up if it's cold outside in the evening
+- alias: Heating - warmer in the evening if it's cold outside
+  hide_entity: true
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.dark_sky_temperature
+    below: 7
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: '21:30'
+      before: '23:59'
+    - condition: template
+      value_template: "{{ states.climate.living_room.attributes.operation_mode == 'heat' }}"
+    - condition: template
+      value_template: "{{ states.climate.living_room.attributes.temperature < 22 }}"
+  action:
+  - service: climate.set_temperature
+    entity_id: climate.living_room
+    data:
+      temperature: 22
+
+- alias: Heating - extended away
+  trigger:
+  - platform: state
+    entity_id: device_tracker.ross_phone
+    from: 'home'
+    to: 'not_home'
+    for:
+      hours: 16
+  condition:
+  - condition: template
+    value_template: '{{ states.climate.living_room.attributes.operation_mode == "eco" }}'
+  action:
+  - service: climate.set_operation_mode
+    entity_id: climate.living_room
+    data:
+      temperature: 10

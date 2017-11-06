@@ -1,0 +1,62 @@
+# Outside light
+- alias: Lights - outside on at sunset
+  trigger:
+  - platform: sun
+    event: sunset
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.outside
+      brightness: 254
+  - service: automation.turn_on # Turns on hack to try switching on again in case of failure
+    entity_id: automation.lights__outside_try_to_switch_on_again
+
+- alias: Lights - outside off at sunrise
+  trigger:
+  - platform: sun
+    event: sunrise
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.outside
+  - service: automation.turn_off # Turns off hack to try switching on again in case of failure
+    entity_id: automation.lights__outside_try_to_switch_on_again
+
+# Hacky automation for outside light sometimes not turning on
+- alias: Lights - outside try to switch on again
+  initial_state: false
+  trigger:
+  - platform: time
+    minutes: 1
+    seconds: 00
+  condition:
+  - condition: state
+    entity_id: outside.light
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.outside
+      brightness: 254
+
+# Stairwell lights. Entity called is a Hue room.
+- alias: Lights - stairwell on in the evening
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '-01:00:00'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.stairwell
+      brightness: 128
+
+- alias: Lights - stairwell off in the morning
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '00:30:00'
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.stairwell
