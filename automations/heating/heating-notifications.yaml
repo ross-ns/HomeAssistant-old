@@ -27,10 +27,10 @@
   trigger:
   - platform: state
     entity_id: device_tracker.ross_phone
-    from: 'not_home'
-    to: 'home'
+    from: 'home'
+    to: 'not_home'
     for:
-      hours: 1
+      minutes: 30
   condition:
     condition: and
     conditions:
