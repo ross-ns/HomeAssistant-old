@@ -27,7 +27,7 @@
   - service: climate.set_temperature
     entity_id: climate.living_room
     data:
-      temperature: 15
+      temperature: 15 ## This needs work. Will set to 15 even if in eco mode (13)
   - service: light.turn_off
     data:
       entity_id: light.lamp
@@ -44,12 +44,17 @@
 
 - alias: Day mode
   trigger:
-  - platform: time
-    at: '06:00'
+  - platform: state
+    entity_id: sensor.kitchen_pir
+    to: 'occupied'
   condition:
-  - condition: state
-    entity_id: input_boolean.daynight_mode
-    state: 'on'
+    condition: and
+    conditions:
+    - condition: time
+      after: '06:00'
+    - condition: state
+      entity_id: input_boolean.daynight_mode
+      state: 'on'
   action:
   - service: input_boolean.turn_off
     data:
