@@ -35,7 +35,7 @@
     condition: and
     conditions:
     - condition: template
-      value_template: "{{ states.climate.living_room.attributes.operation_mode == 'heat' }}"
+      value_template: "{{ states.climate.living_room.attributes.operation_mode == 'off' }}"
     - condition: or
       conditions:
       - condition: state
@@ -48,3 +48,18 @@
   - service: notify.telegram
     data:
       message: "Remember: you have left the heating off!"
+
+- alias: Weather - Send me a photo if it's snowing
+  trigger:
+  - platform: state
+    entity_id: sensor.dark_sky_precip
+    to: 'snow'
+  action:
+  - service: notify.telegram
+    data:
+      title: Snow picture
+      message: Snowing in Glenrothes
+      data:
+        photo:
+          url: http://92.19.208.243:8080/snaprandom?1509009874143
+          caption: Look's like it's snowing at home!

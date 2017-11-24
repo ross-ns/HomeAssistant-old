@@ -10,6 +10,9 @@ sensor.dark_sky_humidity:
 sensor.dark_sky_precip_probability:
   friendly_name: Precipitation probability
   icon: 'mdi:weather-rainy'
+sensor.dark_sky_precip:
+  friendly_name: Precipitation type
+  icon: 'mdi:weather-pouring'
 sensor.dark_sky_temperature:
   friendly_name: Outdoor temperature
   icon: 'mdi:thermometer'
