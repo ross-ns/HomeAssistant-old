@@ -27,7 +27,7 @@
   initial_state: false
   trigger:
   - platform: time
-    minutes: 1
+    minutes: '/1'
     seconds: 00
   condition:
   - condition: state
