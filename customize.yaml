@@ -20,10 +20,10 @@ sensor.dark_sky_apparent_temperature:
   friendly_name: Feels like temperature
   icon: 'mdi:thermometer'
 sensor.dark_sky_daily_high_temperature:
-  friendly_name: Daily high temperature
+  friendly_name: Daytime high temperature
   icon: 'mdi:thermometer'
 sensor.dark_sky_daily_low_temperature:
-  friendly_name: Daily low temperature
+  friendly_name: Overnight low temperature
   icon: 'mdi:thermometer'
 sensor.dark_sky_wind_speed:
   friendly_name: Wind speed
