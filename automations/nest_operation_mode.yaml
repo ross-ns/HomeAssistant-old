@@ -19,6 +19,8 @@
     entity_id: device_tracker.ross_phone
     from: 'not_home'
     to: 'home'
+    for:
+      minutes: 1
   condition:
   - condition: template
     value_template: '{{ states.climate.living_room.attributes.operation_mode == "eco" }}'
