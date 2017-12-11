@@ -47,7 +47,6 @@ automations:
 status_group:
   name: Status
   entities:
-  - sensor.daynight_mode
   - sensor.heating_mode
   - sensor.living_room_thermostat_hvac_state
   - sensor.smoke_detector

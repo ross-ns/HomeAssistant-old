@@ -13,7 +13,3 @@ kitchen_pir:
 bedroom_pir:
   name: Bedroom
   initial: off
-
-daynight_mode:
-  name: Day/night mode
-  initial: off

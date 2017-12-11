@@ -1,4 +1,4 @@
-- alias: Night mode
+- alias: Bedtime
   trigger:
   - platform: time
     at: '23:30'    
@@ -14,9 +14,6 @@
     - condition: time
       after: '23:30'
       before: '06:00'
-    - condition: state
-      entity_id: input_boolean.daynight_mode
-      state: 'off'
     - condition: state
       entity_id: sensor.living_room_pir
       state: 'unoccupied'
@@ -34,28 +31,7 @@
   - service: light.turn_off
     data:
       entity_id: light.tv_leds
-  - service: input_boolean.turn_on
-    data:
-      entity_id: input_boolean.daynight_mode
   - service: notify.all_kodi
     data:
       title: "Home Assistant"
       message: "Lights off and heating set to low"
-
-- alias: Day mode
-  trigger:
-  - platform: state
-    entity_id: sensor.kitchen_pir
-    to: 'occupied'
-  condition:
-    condition: and
-    conditions:
-    - condition: time
-      after: '06:00'
-    - condition: state
-      entity_id: input_boolean.daynight_mode
-      state: 'on'
-  action:
-  - service: input_boolean.turn_off
-    data:
-      entity_id: input_boolean.daynight_mode
