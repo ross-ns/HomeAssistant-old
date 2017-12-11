@@ -17,7 +17,7 @@
     - group.kill_switch
     - group.living_room_lights
     - group.media_players
-    - group.people_tracker
+    - group.people
     - group.rooms
     - group.status_group
     - input_boolean.daynight_mode

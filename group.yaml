@@ -7,11 +7,13 @@ default_view:
   - group.status_group
   - group.rooms
 
-people:
-  name: People
+occupancy:
+  name: Occupancy
   view: yes
   entities:
-  - group.people_tracker
+  - group.people
+  - group.pets
+  - group.rooms
 
 heating:
   name: Heating
@@ -45,7 +47,6 @@ automations:
 status_group:
   name: Status
   entities:
-  - device_tracker.ross_phone
   - sensor.daynight_mode
   - sensor.heating_mode
   - sensor.living_room_thermostat_hvac_state
@@ -84,12 +85,16 @@ scenes:
   - scene.movie
   - scene.emergency
 
-people_tracker:
-  name: People tracker
+people:
+  name: People
   entities:
   - device_tracker.ross_phone
   - sensor.ross_travel_time
   - sensor.distance_from_home
+
+pets:
+  name: Pets
+  entities:
 
 # time_date:
 #   name: Time and date
