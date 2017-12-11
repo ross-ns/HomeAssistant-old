@@ -34,6 +34,7 @@
     - sensor.living_room_chromecast
     - sensor.living_room_kodi
     - sensor.living_room_lights
+    - sensor.living_room_thermostat_hvac_state    
     - sensor.outside_light
     - sensor.stairwell_lights
     - sensor.system_uptime

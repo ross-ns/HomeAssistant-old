@@ -41,7 +41,7 @@
     heating_mode:
       value_template: '{{ states.climate.living_room.attributes.operation_mode }}'
       friendly_name: 'Heating mode'
-      icon_template: 'mdi:fire'
+      icon_template: 'mdi:nest-thermostat'
     
     smoke_detector:
       value_template: '{% if is_state("binary_sensor.hallway_nest_protect_online", "on") %}online{% else %}offline{% endif %}'

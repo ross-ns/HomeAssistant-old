@@ -48,6 +48,7 @@ status_group:
   - device_tracker.ross_phone
   - sensor.daynight_mode
   - sensor.heating_mode
+  - sensor.living_room_thermostat_hvac_state
   - sensor.smoke_detector
   - sensor.raspberry_pi
   - sensor.outside_light
