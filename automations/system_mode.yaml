@@ -24,7 +24,7 @@
   - service: climate.set_temperature
     entity_id: climate.living_room
     data:
-      temperature: 15 ## This needs work. Will set to 15 even if in eco mode (13)
+      temperature: 15
   - service: light.turn_off
     data:
       entity_id: light.lamp
