@@ -126,7 +126,9 @@ weather_conditions:
 
 heating_control:
   name: Heating control
-  entities: climate.living_room
+  entities: 
+  - climate.living_room
+  - sensor.nest_away_mode
 
 weather_cam:
   name: Weather cam

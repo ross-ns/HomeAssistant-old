@@ -42,6 +42,16 @@
       value_template: '{{ states.climate.living_room.attributes.operation_mode }}'
       friendly_name: 'Heating mode'
       icon_template: 'mdi:nest-thermostat'
+
+    nest_away_mode:
+      value_template: '{{ states.climate.living_room.attributes.away_mode }}'
+      friendly_name: 'Away mode'
+      icon_template: >
+        {%- if states.climate.living_room.attributes.away_mode == "on" -%}
+        mdi:home-outline
+        {%- else -%}
+        mdi:home-account
+        {%- endif -%}
     
     smoke_detector:
       value_template: '{% if is_state("binary_sensor.hallway_nest_protect_online", "on") %}online{% else %}offline{% endif %}'
