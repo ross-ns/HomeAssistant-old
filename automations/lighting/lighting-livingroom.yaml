@@ -1,5 +1,5 @@
 # Living room lights
-- alias: Living room lights - on in the evening
+- alias: Living room lights - on in the evening (weekdays)
   trigger:
   - platform: time
     at: '17:30'
@@ -10,8 +10,29 @@
     conditions:
     - condition: time
       after: '17:30'
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
     - condition: sun
       after: sunset
+  action:
+  - service: scene.turn_on
+    entity_id: scene.warm
+
+- alias: Living room lights - on in the evening (weekend)
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '-00:45:00'
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
   action:
   - service: scene.turn_on
     entity_id: scene.warm
