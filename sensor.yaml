@@ -54,24 +54,49 @@
         {%- endif -%}
     
     smoke_detector:
-      value_template: '{% if is_state("binary_sensor.hallway_nest_protect_online", "on") %}online{% else %}offline{% endif %}'
+      value_template: >
+        {%- if states.binary_sensor.hallway_nest_protect_online.state == "on" -%}
+        online
+        {%- else -%}
+        offline
+        {%- endif -%}
       friendly_name: Smoke/CO² detector
-      icon_template: '{% if is_state("binary_sensor.hallway_nest_protect_online", "on") %}mdi:nest-protect{% else %}mdi:alert-circle-outline{% endif %}'
+      icon_template: >
+        {%- if states.binary_sensor.hallway_nest_protect_online.state == "on" -%}
+        mdi:nest-protect
+        {%- else -%}
+        mdi:alert-circle-outline
+        {%- endif -%}
 
     outside_light:
       value_template: '{{ states.light.outside.state }}'
       friendly_name: 'Outside light'
-      icon_template: '{% if is_state("light.outside", "on") %}mdi:lightbulb-on{% else %}mdi:lightbulb-outline{% endif %}'
+      icon_template: >
+        {%- if states.light.outside.state == "on" -%}
+        mdi:lightbulb-on
+        {%- else -%}
+        mdi:lightbulb-outline
+        {%- endif -%}
 
     stairwell_lights:
       value_template: '{{ states.light.stairwell.state }}'
       friendly_name: 'Stairwell lights'
-      icon_template: '{% if is_state("light.stairwell", "on") %}mdi:lightbulb-on{% else %}mdi:lightbulb-outline{% endif %}'
+      icon_template: >
+        {%- if states.light.stairwell.state == "on" -%}
+        mdi:lightbulb-on
+        {%- else -%}
+        mdi:lightbulb-outline
+        {%- endif -%}
 
     living_room_lights:
       value_template: '{{ states.group.living_room_lights.state }}'
       friendly_name: 'Living room lights'
-      icon_template: '{% if is_state("group.living_room_lights", "on") %}mdi:lightbulb-on{% else %}mdi:lightbulb-outline{% endif %}'
+      icon_template: >
+        {%- if states.group.living_room_lights.state == "on" -%}
+        mdi:lightbulb-on
+        {%- else -%}
+        mdi:lightbulb-outline
+        {%- endif -%}
 
     living_room_chromecast:
       value_template: '{{ states.media_player.living_room_chromecast.state }}'
@@ -88,37 +113,92 @@
       friendly_name: 'Bedroom Kodi'
       icon_template: 'mdi:kodi'
 
-    daynight_mode:
-      value_template: '{% if is_state("input_boolean.daynight_mode", "on") %}night{% else %}day{% endif %}'
-      friendly_name: 'System mode'
-      icon_template: '{% if is_state("input_boolean.daynight_mode", "on") %}mdi:weather-night{% else %}mdi:weather-sunny{% endif %}'
-
     raspberry_pi:
-      value_template: '{% if is_state("binary_sensor.raspberry_pi", "on") %}online{% else %}offline{% endif %}'
+      value_template: >
+        {%- if states.binary_sensor.raspberry_pi.state == "on" -%}
+        online
+        {%- else -%}
+        offline
+        {%- endif -%}
       friendly_name: 'Raspberry Pi'
-      icon_template: '{% if is_state("binary_sensor.raspberry_pi", "on") %}mdi:raspberrypi{% else %}mdi:alert-circle-outline{% endif %}'
+      icon_template: >
+        {%- if states.binary_sensor.raspberry_pi.state == "on" -%}
+        mdi:raspberrypi
+        {%- else -%}
+        mdi:alert-circle-outline
+        {%- endif -%}
 
     study_pir:
-      value_template: '{% if is_state("input_boolean.study_pir", "on") %}occupied{% else %}unoccupied{% endif %}'
+      value_template: >
+        {%- if states.input_boolean.study_pir.state == "on" -%}
+        occupied
+        {%- else -%}
+        unoccupied
+        {%- endif -%}
       friendly_name: 'Study'
-      icon_template: '{% if is_state("input_boolean.study_pir", "on") %}mdi:check-circle{% else %}mdi:checkbox-blank-circle-outline{% endif %}'
+      icon_template: >
+        {%- if states.input_boolean.study_pir == "on" -%}
+        mdi:check-circle
+        {%- else -%}
+        mdi:checkbox-blank-circle-outline
+        {%- endif -%}
 
     living_room_pir:
-      value_template: '{% if is_state("input_boolean.living_room_pir", "on") %}occupied{% else %}unoccupied{% endif %}'
+      value_template: >
+        {% if states.input_boolean.living_room_pir.state == "on" -%}
+        occupied
+        {%- else -%}
+        unoccupied
+        {%- endif -%}
       friendly_name: 'Living room'
-      icon_template: '{% if is_state("input_boolean.living_room_pir", "on") %}mdi:check-circle{% else %}mdi:checkbox-blank-circle-outline{% endif %}'
+      icon_template: >
+        {%- if states.input_boolean.living_room_pir.state == "on" -%}
+        mdi:check-circle
+        {%- else -%}
+        mdi:checkbox-blank-circle-outline
+        {%- endif -%}
 
     kitchen_pir:
-      value_template: '{% if is_state("input_boolean.kitchen_pir", "on") %}occupied{% else %}unoccupied{% endif %}'
+      value_template: >
+        {%- if states.input_boolean.kitchen_pir.state == "on" -%}
+        occupied
+        {%- else -%}
+        unoccupied
+        {%- endif -%}
       friendly_name: 'Kitchen'
-      icon_template: '{% if is_state("input_boolean.kitchen_pir", "on") %}mdi:check-circle{% else %}mdi:checkbox-blank-circle-outline{% endif %}'
+      icon_template: >
+        {%- if states.input_boolean.kitchen_pir.state == "on" -%}
+        mdi:check-circle
+        {%- else -%}
+        mdi:checkbox-blank-circle-outline
+        {%- endif -%}
 
     bedroom_pir:
-      value_template: '{% if is_state("input_boolean.bedroom_pir", "on") %}occupied{% else %}unoccupied{% endif %}'
+      value_template: >
+        {%- if states.input_boolean.bedroom_pir.state == "on" -%}
+        occupied
+        {%- else -%}
+        unoccupied
+        {%- endif -%}
       friendly_name: 'Bedroom'
-      icon_template: '{% if is_state("input_boolean.bedroom_pir", "on") %}mdi:check-circle{% else %}mdi:checkbox-blank-circle-outline{% endif %}'
+      icon_template: >
+        {%- if states.input_boolean.bedroom_pir.state == "on" -%}
+        mdi:check-circle
+        {%- else -%}
+        mdi:checkbox-blank-circle-outline
+        {%- endif -%}
 
     front_door:
-      value_template: '{% if is_state("binary_sensor.front_door", "on") %}open{% else %}closed{% endif %}'
+      value_template: >
+        {%- if states.binary_sensor.front_door.state == "on" %}
+        open
+        {%- else -%}
+        closed
+        {%- endif -%}
       friendly_name: 'Front door'
-      icon_template: '{% if is_state("binary_sensor.front_door", "on") %}mdi:checkbox-blank-outline{% else %}mdi:checkbox-marked{% endif %}'
+      icon_template: >
+        {%- if states.binary_sensor.front_door.state == "on" %}
+        mdi:checkbox-blank-outline
+        {%- else -%}
+        mdi:checkbox-marked
+        {%- endif -%}
