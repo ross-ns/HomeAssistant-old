@@ -128,6 +128,7 @@ heating_control:
   name: Heating control
   entities: 
   - climate.living_room
+  - sensor.living_room_thermostat_hvac_state  
   - sensor.nest_away_mode
 
 weather_cam:
