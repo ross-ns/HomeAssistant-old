@@ -137,7 +137,7 @@
         {%- endif -%}
       friendly_name: 'Study'
       icon_template: >
-        {%- if states.input_boolean.study_pir == "on" -%}
+        {%- if states.input_boolean.study_pir.state == "on" -%}
         mdi:check-circle
         {%- else -%}
         mdi:checkbox-blank-circle-outline
