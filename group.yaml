@@ -24,7 +24,7 @@ heating:
   - group.weather_cam
 
 lighting:
-  name: Lights
+  name: Lighting
   view: yes
   entities:
   - group.all_lights
@@ -35,6 +35,12 @@ media:
   view: yes
   entities:
   - group.media_players
+
+laundry:
+  name: Laundry
+  view: yes
+  entities:
+  - group.washing_machine
 
 automations:
   name: Automations
@@ -47,16 +53,17 @@ automations:
 status_group:
   name: Status
   entities:
+  - sensor.living_room_lights
+  - sensor.stairwell_lights
+  - sensor.outside_light
   - sensor.heating_mode
   - sensor.living_room_thermostat_hvac_state
-  - sensor.smoke_detector
-  - sensor.raspberry_pi
-  - sensor.outside_light
-  - sensor.stairwell_lights
-  - sensor.living_room_lights
-# - sensor.living_room_chromecast - Add this back in when Chromecast discovery is fixed
   - sensor.living_room_kodi
   - sensor.bedroom_kodi
+  - sensor.washing_machine
+  - sensor.smoke_detector
+  - sensor.raspberry_pi
+# - sensor.living_room_chromecast - Add this back in when Chromecast discovery is fixed
   - sensor.uptime
 # - sensor.time
 # - sensor.date
@@ -135,3 +142,11 @@ weather_cam:
   name: Weather cam
   entities:
   - camera.fife_airport_weather
+
+washing_machine:
+  name: Washing machine
+  entities:
+  - switch.washing_machine
+  - sensor.washing_machine_state
+  - sensor.washing_machine_power
+  - input_select.washing_machine_status
