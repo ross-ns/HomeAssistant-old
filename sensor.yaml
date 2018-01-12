@@ -56,9 +56,9 @@
     smoke_detector:
       value_template: >
         {%- if states.binary_sensor.hallway_nest_protect_online.state == "on" -%}
-        online
+        Online
         {%- else -%}
-        offline
+        Offline
         {%- endif -%}
       friendly_name: Smoke/CO² detector
       icon_template: >
@@ -116,9 +116,9 @@
     raspberry_pi:
       value_template: >
         {%- if states.binary_sensor.raspberry_pi.state == "on" -%}
-        online
+        Online
         {%- else -%}
-        offline
+        Offline
         {%- endif -%}
       friendly_name: 'Raspberry Pi'
       icon_template: >
@@ -131,9 +131,9 @@
     study_pir:
       value_template: >
         {%- if states.input_boolean.study_pir.state == "on" -%}
-        occupied
+        Occupied
         {%- else -%}
-        unoccupied
+        Unoccupied
         {%- endif -%}
       friendly_name: 'Study'
       icon_template: >
@@ -146,9 +146,9 @@
     living_room_pir:
       value_template: >
         {% if states.input_boolean.living_room_pir.state == "on" -%}
-        occupied
+        Occupied
         {%- else -%}
-        unoccupied
+        Unoccupied
         {%- endif -%}
       friendly_name: 'Living room'
       icon_template: >
@@ -161,9 +161,9 @@
     kitchen_pir:
       value_template: >
         {%- if states.input_boolean.kitchen_pir.state == "on" -%}
-        occupied
+        Occupied
         {%- else -%}
-        unoccupied
+        Unoccupied
         {%- endif -%}
       friendly_name: 'Kitchen'
       icon_template: >
@@ -176,9 +176,9 @@
     bedroom_pir:
       value_template: >
         {%- if states.input_boolean.bedroom_pir.state == "on" -%}
-        occupied
+        Occupied
         {%- else -%}
-        unoccupied
+        Unoccupied
         {%- endif -%}
       friendly_name: 'Bedroom'
       icon_template: >
@@ -191,9 +191,9 @@
     front_door:
       value_template: >
         {%- if states.binary_sensor.front_door.state == "on" %}
-        open
+        Open
         {%- else -%}
-        closed
+        Closed
         {%- endif -%}
       friendly_name: 'Front door'
       icon_template: >
@@ -202,3 +202,21 @@
         {%- else -%}
         mdi:checkbox-marked
         {%- endif -%}
+
+    washing_machine_power:
+      value_template: '{{ states.switch.washing_machine.attributes.current_consumption | replace(" W", "") }}'
+    
+    washing_machine_state:
+      value_template: >
+        {% if (states.sensor.washing_machine_power.state | float > 0.5) and (states.sensor.washing_machine_power.state | float < 2.0) %}
+        idle
+        {% elif (states.sensor.washing_machine_power.state | float > 2.0) %}
+        running
+        {% else %}
+        off
+        {% endif %}
+
+    washing_machine:
+      friendly_name: 'Washing machine'
+      value_template: '{{ states.input_select.washing_machine_status.state }}'
+      icon_template: mdi:washing-machine
