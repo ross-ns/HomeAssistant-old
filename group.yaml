@@ -12,6 +12,7 @@ occupancy:
   view: yes
   entities:
   - group.people
+  - group.tracker_ross
   - group.pets
   - group.rooms
 
@@ -94,7 +95,7 @@ scenes:
 people:
   name: People
   entities:
-  - device_tracker.ross_phone
+  - group.tracker_ross
   - sensor.ross_travel_time
   - sensor.distance_from_home
 
@@ -150,3 +151,10 @@ washing_machine:
   - sensor.washing_machine_state
   - sensor.washing_machine_power
   - input_select.washing_machine_status
+
+# Tracker groups
+tracker_ross:
+  name: Ross
+  entities:
+  - binary_sensor.ross_keys
+  - device_tracker.ross_phone

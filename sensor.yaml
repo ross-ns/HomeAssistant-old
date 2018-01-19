@@ -203,14 +203,16 @@
         mdi:checkbox-marked
         {%- endif -%}
 
+    # This is just for the front end and debugging - remove when finished
     washing_machine_power:
-      value_template: '{{ states.switch.washing_machine.attributes.current_consumption | replace(" W", "") }}'
-    
+      friendly_name: 'Washing machine power'
+      value_template: '{{ states.switch.washing_machine.attributes.current_power_w }}'
+
     washing_machine_state:
       value_template: >
-        {% if (states.sensor.washing_machine_power.state | float > 0.5) and (states.sensor.washing_machine_power.state | float < 2.0) %}
+        {% if (states.switch.washing_machine.attributes.current_power_w | float > 0.2) and (states.switch.washing_machine.attributes.current_power_w | float < 3.0) %}
         idle
-        {% elif (states.sensor.washing_machine_power.state | float > 2.0) %}
+        {% elif (states.switch.washing_machine.attributes.current_power_w | float > 2.0) %}
         running
         {% else %}
         off
