@@ -1,0 +1,9 @@
+washing_machine_status:
+  name: Washing machine
+  options:
+    - "Off"
+    - Idle
+    - Washing
+    - Drying
+    - Finished
+  initial: "Off"
