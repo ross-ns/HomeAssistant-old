@@ -6,7 +6,7 @@
     from: 'unavailable'
   - platform: state
     entity_id: sensor.study_pir
-    to: 'occupied'
+    to: 'Occupied'
   - platform: sun
     event: sunset
     offset: '-2:00:00'
@@ -18,7 +18,7 @@
       after_offset: '-2:00:00'
     - condition: state
       entity_id: sensor.study_pir
-      state: 'occupied'
+      state: 'Occupied'
   action:
   - service: light.turn_on
     entity_id: light.computer_desk_leds
@@ -27,7 +27,7 @@
   trigger:
   - platform: state
     entity_id: sensor.study_pir
-    to: 'unoccupied'
+    to: 'Unoccupied'
   condition:
   - condition: state
     entity_id: light.computer_desk_leds

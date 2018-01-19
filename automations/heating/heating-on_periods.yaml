@@ -60,7 +60,7 @@
   trigger:
   - platform: state
     entity_id: sensor.kitchen_pir
-    to: 'occupied'
+    to: 'Occupied'
   condition:
   - condition: template
     value_template: "{{ states.climate.living_room.attributes.temperature < 20 }}"

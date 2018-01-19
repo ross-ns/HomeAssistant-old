@@ -4,10 +4,10 @@
     at: '23:30'    
   - platform: state
     entity_id: sensor.living_room_pir
-    to: 'unoccupied'
+    to: 'Unoccupied'
   - platform: state
     entity_id: sensor.study_room_pir
-    to: 'unoccupied'    
+    to: 'Unoccupied'    
   condition:
     condition: and
     conditions:
@@ -16,10 +16,10 @@
       before: '06:00'
     - condition: state
       entity_id: sensor.living_room_pir
-      state: 'unoccupied'
+      state: 'Unoccupied'
     - condition: state
       entity_id: sensor.study_pir
-      state: 'unoccupied'
+      state: 'Unoccupied'
   action:
   - service: climate.set_temperature
     entity_id: climate.living_room
