@@ -21,7 +21,7 @@
     to: 'on'
   condition:
   - condition: state
-    entity_id: device_tracker.ross_phone
+    entity_id: sensor.tracker_ross
     state: 'not_home'
   action:
   - service: automation.turn_off

@@ -14,7 +14,7 @@
       - thu
       - fri
     - condition: zone
-      entity_id: device_tracker.ross_phone
+      entity_id: sensor.tracker_ross
       zone: 'zone.home'
     - condition: template
       value_template: '{{ states.climate.living_room.attributes.operation_mode == "heat" }}'
@@ -45,7 +45,7 @@
     - condition: template
       value_template: '{{ states.climate.living_room.attributes.operation_mode == "heat" }}'      
     - condition: zone
-      entity_id: device_tracker.ross_phone
+      entity_id: sensor.tracker_ross
       zone: 'zone.home'
   action:
   - service: climate.set_temperature

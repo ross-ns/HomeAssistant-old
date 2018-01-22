@@ -26,7 +26,7 @@
 - alias: Heating - notify heating has been left off
   trigger:
   - platform: state
-    entity_id: device_tracker.ross_phone
+    entity_id: sensor.tracker_ross
     from: 'home'
     to: 'not_home'
     for:
