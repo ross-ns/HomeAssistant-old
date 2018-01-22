@@ -3,6 +3,8 @@
   - platform: state
     entity_id: sensor.washing_machine_state
     to: "off"
+    for:
+      seconds: 10
   action:
   - service: input_select.select_option
     data:
@@ -53,10 +55,20 @@
     for:
       minutes: 2
   action:
+  - service: switch.turn_off
+    entity_id: switch.washing_machine
   - service: input_select.select_option
     data:
       entity_id: input_select.washing_machine_status
       option: Finished
   - service: notify.telegram
     data:
-      message: "Washing has finished."
+      message: "Washing machine has finished. It used {{ states.switch.washing_machine.attributes.today_energy_kwh }} kWh this cycle."
+  - service: notify.all_kodi
+    data:
+      title: "Home Assistant"
+      message: "Washing machine has finished"
+  - delay:
+      seconds: 5
+  - service: switch.turn_on
+    entity_id: switch.washing_machine
