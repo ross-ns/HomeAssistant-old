@@ -4,19 +4,7 @@
 - alias: Security - Notify of activity if in away mode
   trigger: 
   - platform: state
-    entity_id: binary_sensor.study_pir
-    from: 'off'
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.living_room_pir
-    from: 'off'
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.kitchen_pir
-    from: 'off'
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.bedroom_pir
+    entity_id: binary_sensor.bedroom_pir, binary_sensor.kitchen_pir, binary_sensor.living_room_pir, binary_sensor.study_pir  
     from: 'off'
     to: 'on'
   condition:
