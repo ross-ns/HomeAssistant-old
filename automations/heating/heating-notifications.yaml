@@ -27,8 +27,8 @@
   trigger:
   - platform: state
     entity_id: sensor.tracker_ross
-    from: 'home'
-    to: 'not_home'
+    from: 'Home'
+    to: 'Away'
     for:
       minutes: 30
   condition:

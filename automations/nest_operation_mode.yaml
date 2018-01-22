@@ -3,8 +3,8 @@
   trigger:
   - platform: state
     entity_id: sensor.tracker_ross
-    from: 'not_home'
-    to: 'home'
+    from: 'Away'
+    to: 'Home'
   action:
   - service: climate.set_away_mode
     entity_id: climate.living_room
@@ -17,8 +17,8 @@
   trigger:
   - platform: state
     entity_id: sensor.tracker_ross
-    from: 'not_home'
-    to: 'home'
+    from: 'Away'
+    to: 'Home'
     for:
       minutes: 1
   condition:
@@ -35,8 +35,8 @@
   trigger:
   - platform: state
     entity_id: sensor.tracker_ross
-    from: 'home'
-    to: 'not_home'
+    from: 'Home'
+    to: 'Away'
     for:
       minutes: 3
   action:
@@ -51,8 +51,8 @@
   trigger:
   - platform: state
     entity_id: sensor.tracker_ross
-    from: 'home'
-    to: 'not_home'
+    from: 'Home'
+    to: 'Away'
     for:
       minutes: 3
   condition:
