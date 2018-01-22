@@ -38,6 +38,14 @@
   payload_off: "0"
   device_class: opening
 
+- platform: mqtt
+  name: "Ross keys"
+  state_topic: "ibeacon/00001803-494c-4f47-4943-544543480000"
+  qos: 0
+  payload_on: "1"
+  payload_off: "0"
+  device_class: presence
+
 - platform: command_line
   name: Raspberry Pi
   command: ping -W 1 -c 1 192.168.0.151 > /dev/null 2>&1 && echo online || echo offline

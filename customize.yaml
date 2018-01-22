@@ -1,3 +1,5 @@
+sensor.tracker_ross:
+  entity_picture: /local/ross.jpg
 sun.sun:
   friendly_name: Sun
   icon: 'mdi:white-balance-sunny'

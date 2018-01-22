@@ -222,3 +222,15 @@
       friendly_name: 'Washing machine'
       value_template: '{{ states.input_select.washing_machine_status.state }}'
       icon_template: mdi:washing-machine
+
+    # Test tracking sensor
+    tracker_ross:
+      friendly_name: 'Ross'
+      value_template: >
+        {% if states.group.tracker_ross.state == 'on' %}
+        Home
+        {% elif states.group.tracker_ross.state == 'off' %}
+        Away
+        {% else %}
+        n/a
+        {% endif %}

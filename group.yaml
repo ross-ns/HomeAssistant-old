@@ -95,7 +95,7 @@ scenes:
 people:
   name: People
   entities:
-  - group.tracker_ross
+  - sensor.tracker_ross
   - sensor.ross_travel_time
   - sensor.distance_from_home
 
