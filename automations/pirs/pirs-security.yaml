@@ -1,23 +1,24 @@
-# This automation will send a message to Telegram if any of the PIRs are activated while HA is in Away Mode. To limit 
-# notification spam (usually caused by HA not seeing my phone) the automation turns itself off, sends the Telegram message, waits
-# 2 minutes then finally, turns the automation back on.
 - alias: Security - Notify of activity if in away mode
   trigger: 
   - platform: state
-    entity_id: binary_sensor.bedroom_pir, binary_sensor.kitchen_pir, binary_sensor.living_room_pir, binary_sensor.study_pir  
-    from: 'off'
-    to: 'on'
+    entity_id: sensor.bedroom_pir, sensor.kitchen_pir, sensor.living_room_pir, sensor.study_pir  
+    to: 'Occupied'
   condition:
   - condition: state
     entity_id: sensor.tracker_ross
-    state: 'not_home'
+    state: 'Away'
   action:
-  - service: automation.turn_off
-    entity_id: automation.security__notify_of_activity_if_in_away_mode
   - service: notify.telegram
-    data:
-      message: "Activity detected at home"
-  - delay:
-      minutes: 5
-  - service: automation.turn_on
-    entity_id: automation.security__notify_of_activity_if_in_away_mode 
+    data_template:
+      message: >
+        {% if states.sensor.bedroom_pir.state == "Occupied" %}
+        Activity detected in the bedroom!
+        {% elif states.sensor.kitchen_pir.state == "Occupied" %}
+        Activity detected in the kitched!
+        {% elif states.sensor.living_room_pir.state == "Occupied" %}
+        Activity detected in the living room!
+        {% elif states.sensor.study_pir.state == "Occupied" %}
+        Activity detected in the study!
+        {% else %}
+        Activity detected at home!
+        {% endif %}
