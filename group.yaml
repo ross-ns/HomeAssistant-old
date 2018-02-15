@@ -96,6 +96,7 @@ people:
   name: People
   entities:
   - sensor.tracker_ross
+  - binary_sensor.bayesian_presence
   - sensor.ross_travel_time
   - sensor.distance_from_home
 
@@ -119,25 +120,25 @@ media_players:
 weather_conditions:
   name: Weather conditions
   entities:
-  - sensor.dark_sky_temperature
+  - sensor.met_office_temperature
+  - sensor.met_office_feels_like_temperature
   - sensor.dark_sky_daily_high_temperature
   - sensor.dark_sky_daily_low_temperature
-  - sensor.dark_sky_apparent_temperature
   - sensor.living_room_thermostat_temperature
   - sensor.dark_sky_cloud_coverage
-  - sensor.dark_sky_precip_probability
+  - sensor.met_office_probability_of_precipitation
   - sensor.dark_sky_precip
-  - sensor.dark_sky_wind_speed
-  - sensor.dark_sky_humidity
+  - sensor.met_office_wind_speed
+  - sensor.met_office_humidity
   - sensor.living_room_thermostat_humidity
   - sun.sun
 
 heating_control:
   name: Heating control
   entities: 
+  - sensor.nest_away_mode
   - climate.living_room
   - sensor.living_room_thermostat_hvac_state  
-  - sensor.nest_away_mode
 
 weather_cam:
   name: Weather cam

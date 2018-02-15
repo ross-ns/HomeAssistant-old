@@ -26,6 +26,18 @@
   - 'precip_probability'
   - 'precip_type'
 
+- platform: metoffice
+  api_key: !secret metoffice_api_key
+  monitored_conditions:
+  - weather
+  - temperature
+  - feels_like_temperature
+  - wind_speed
+  - wind_direction
+  - uv
+  - precipitation
+  - humidity
+
 - platform: season
   type: meteorological
 

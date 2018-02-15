@@ -6,19 +6,19 @@ sun.sun:
 sensor.dark_sky_cloud_coverage:
   friendly_name: Cloud coverage
   icon: 'mdi:weather-cloudy'
-sensor.dark_sky_humidity:
+sensor.met_office_humidity:
   friendly_name: Outdoor humidity
   icon: 'mdi:water-percent'
-sensor.dark_sky_precip_probability:
+sensor.met_office_probability_of_precipitation:
   friendly_name: Precipitation probability
   icon: 'mdi:weather-rainy'
 sensor.dark_sky_precip:
   friendly_name: Precipitation type
   icon: 'mdi:weather-pouring'
-sensor.dark_sky_temperature:
+sensor.met_office_temperature:
   friendly_name: Outdoor temperature
   icon: 'mdi:thermometer'
-sensor.dark_sky_apparent_temperature:
+sensor.met_office_feels_like_temperature:
   friendly_name: Feels like temperature
   icon: 'mdi:thermometer'
 sensor.dark_sky_daily_high_temperature:
@@ -27,7 +27,7 @@ sensor.dark_sky_daily_high_temperature:
 sensor.dark_sky_daily_low_temperature:
   friendly_name: Overnight low temperature
   icon: 'mdi:thermometer'
-sensor.dark_sky_wind_speed:
+sensor.met_office_wind_speed:
   friendly_name: Wind speed
   icon: 'mdi:weather-windy'
 sensor.living_room_thermostat_humidity:
