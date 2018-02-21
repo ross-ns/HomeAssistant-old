@@ -10,10 +10,27 @@ homeassistant:
 config:
 frontend:
 updater:
-discovery:
+# discovery:
 # conversation:
 hassio:
+
 history:
+  use_include_order: True
+  include:
+    domains:
+    - switch
+    - sensor
+    - device_tracker
+    - light
+    entities:
+    - binary_sensor.bayesian_presence
+    - binary_sensor.hallway_nest_protect_online
+  exclude:
+    entities:
+    - sensor.date
+    - sensor.time
+    - sensor.uptime
+
 recorder:
   purge_interval: 2
   purge_keep_days: 7
