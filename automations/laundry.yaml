@@ -13,12 +13,19 @@
 
 # Idle. The machine can draw idle power levels during a wash and/or dry cycle so to avoid incorrectly setting to idle
 # make sure the machine was off first, i.e. not from a Running state.
+# The condition is to stop the status being set to Idle after power cycling the switch at the end of a cycle.
 - alias: Washing machine - idle
   trigger:
   - platform: state
     entity_id: sensor.washing_machine_state
     from: "off"
     to: "idle"
+  condition:
+    condition: template
+    value_template: >
+      {% if not is_state('input_select.washing_machine_status', 'Finished') %}
+      true
+      {% endif %}
   action:
   - service: input_select.select_option
     data:
@@ -56,14 +63,14 @@
       minutes: 2
   action:
   - service: switch.turn_off
-    entity_id: switch.washing_machine
+    entity_id: switch.washing_machine_mains
   - service: input_select.select_option
     data:
       entity_id: input_select.washing_machine_status
       option: Finished
   - service: notify.telegram
     data:
-      message: "Washing machine has finished. It used {{ states.switch.washing_machine.attributes.today_energy_kwh }} kWh this cycle."
+      message: "Washing machine has finished. It used {{ states.switch.washing_machine_mains.attributes.today_energy_kwh | round(1) }} kWh this cycle."
   - service: notify.all_kodi
     data:
       title: "Home Assistant"
@@ -71,4 +78,4 @@
   - delay:
       seconds: 5
   - service: switch.turn_on
-    entity_id: switch.washing_machine
+    entity_id: switch.washing_machine_mains

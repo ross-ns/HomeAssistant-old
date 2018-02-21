@@ -20,9 +20,9 @@ heating:
   name: Heating
   view: yes
   entities:
-  - group.weather_conditions
   - group.heating_control
   - group.weather_cam
+  - group.weather_conditions  
 
 lighting:
   name: Lighting
@@ -148,10 +148,12 @@ weather_cam:
 washing_machine:
   name: Washing machine
   entities:
-  - switch.washing_machine
-  - sensor.washing_machine_state
-  - sensor.washing_machine_power
   - input_select.washing_machine_status
+  - switch.washing_machine_mains
+  - sensor.washing_machine
+  - sensor.washing_machine_current_power
+  - sensor.washing_machine_today_power
+  - sensor.washing_machine_total_power
 
 # Tracker groups
 tracker_ross:

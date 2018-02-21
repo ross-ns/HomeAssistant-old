@@ -1,3 +1,16 @@
+- platform: bayesian
+  prior: 0.7 # Probability that I'm home
+  name: 'Bayesian Presence'
+  observations:
+    - entity_id: 'device_tracker.ross_phone'
+      prob_given_true: 0.9
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'binary_sensor.ross_keys'
+      prob_given_true: 0.3
+      platform: 'state'
+      to_state: 'off'
+
 - platform: mqtt
   name: "Living room PIR"
   state_topic: "/mqtt-gpio-monitor/out/11"
