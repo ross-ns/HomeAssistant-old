@@ -38,7 +38,7 @@
     from: 'Home'
     to: 'Away'
     for:
-      minutes: 3
+      minutes: 1
   action:
   - service: climate.set_away_mode
     entity_id: climate.living_room
