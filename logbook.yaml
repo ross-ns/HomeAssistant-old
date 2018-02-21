@@ -1,30 +1,20 @@
   exclude:
+    domains:
+    - group
+    - automation
+    - input_boolean
     entities:
-    - automation.bedroom_occupied
-    - automation.bedroom_unoccupied
-    - automation.kitchen_occupied
-    - automation.kitchen_unoccupied
-    - automation.living_room_occupied
-    - automation.living_room_unoccupied
-    - automation.study_occupied
-    - automation.study_unoccupied
     - binary_sensor.bedroom_pir
     - binary_sensor.kitchen_pir
     - binary_sensor.front_door
     - binary_sensor.living_room_pir
     - binary_sensor.study_pir
     - group.default_view
-    - group.kill_switch
     - group.living_room_lights
     - group.media_players
     - group.people
     - group.rooms
     - group.status_group
-    - input_boolean.daynight_mode
-    - input_boolean.bedroom_pir
-    - input_boolean.kitchen_pir
-    - input_boolean.living_room_pir
-    - input_boolean.study_pir
     - sensor.bedroom_kodi
     - sensor.computer_desk_leds
     - sensor.date

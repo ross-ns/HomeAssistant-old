@@ -14,6 +14,23 @@ updater:
 # conversation:
 hassio:
 
+history:
+  use_include_order: True
+  include:
+    domains:
+    - switch
+    - sensor
+    - device_tracker
+    - light
+    entities:
+    - binary_sensor.bayesian_presence
+    - binary_sensor.hallway_nest_protect_online
+  exclude:
+    entities:
+    - sensor.date
+    - sensor.time
+    - sensor.uptime
+
 hue:
   bridges:
   - host: 192.168.0.150
