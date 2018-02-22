@@ -1,15 +1,15 @@
-- platform: bayesian
-  prior: 0.7 # Probability that I'm home
-  name: 'Bayesian Presence'
-  observations:
-    - entity_id: 'device_tracker.ross_phone'
-      prob_given_true: 0.9
-      platform: 'state'
-      to_state: 'home'
-    - entity_id: 'binary_sensor.ross_keys'
-      prob_given_true: 0.3
-      platform: 'state'
-      to_state: 'off'
+#- platform: bayesian
+#  prior: 0.7 # Probability that I'm home
+#  name: 'Bayesian Presence'
+#  observations:
+#    - entity_id: 'device_tracker.ross_phone'
+#      prob_given_true: 0.9
+#      platform: 'state'
+#      to_state: 'home'
+#    - entity_id: 'binary_sensor.ross_keys'
+#      prob_given_true: 0.3
+#      platform: 'state'
+#      to_state: 'off'
 
 - platform: mqtt
   name: "Living room PIR"
@@ -51,13 +51,13 @@
   payload_off: "0"
   device_class: opening
 
-- platform: mqtt
-  name: "Ross keys"
-  state_topic: "ibeacon/00001803-494c-4f47-4943-544543480000"
-  qos: 0
-  payload_on: "1"
-  payload_off: "0"
-  device_class: presence
+#- platform: mqtt
+#  name: "Ross keys"
+#  state_topic: "ibeacon/00001803-494c-4f47-4943-544543480000"
+#  qos: 0
+#  payload_on: "1"
+#  payload_off: "0"
+#  device_class: presence
 
 - platform: command_line
   name: Raspberry Pi
