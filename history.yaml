@@ -1,0 +1,16 @@
+  use_include_order: True
+  include:
+    domains:
+    - switch
+    - sensor
+    - device_tracker
+    - light
+    entities:
+    - binary_sensor.bayesian_presence
+    - binary_sensor.hallway_nest_protect_online
+    - group.tracker_ross
+  exclude:
+    entities:
+    - sensor.date
+    - sensor.time
+    - sensor.uptime

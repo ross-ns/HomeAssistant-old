@@ -13,30 +13,10 @@ updater:
 # discovery:
 # conversation:
 hassio:
-
-history:
-  use_include_order: True
-  include:
-    domains:
-    - switch
-    - sensor
-    - device_tracker
-    - light
-    entities:
-    - binary_sensor.bayesian_presence
-    - binary_sensor.hallway_nest_protect_online
-    - group.tracker_ross
-  exclude:
-    entities:
-    - sensor.date
-    - sensor.time
-    - sensor.uptime
-
 hue:
   bridges:
   - host: 192.168.0.150
     allow_unreachable: true
-
 recorder:
   purge_interval: 2
   purge_keep_days: 7
@@ -48,6 +28,7 @@ automation: !include_dir_merge_list automations
 binary_sensor: !include binary_sensor.yaml
 device_tracker: !include device_tracker.yaml
 group: !include group.yaml
+history: !include history.yaml
 http: !include http.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
