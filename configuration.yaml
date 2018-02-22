@@ -25,6 +25,7 @@ history:
     entities:
     - binary_sensor.bayesian_presence
     - binary_sensor.hallway_nest_protect_online
+    - group.tracker_ross
   exclude:
     entities:
     - sensor.date
