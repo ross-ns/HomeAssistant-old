@@ -1,0 +1,23 @@
+- alias: Smoke detected
+  trigger:
+  - platform: state
+    entity_id: sensor.nest_protect_smoke_status
+    to: 'emergency'
+  action:
+  - service: switch.turn_off
+    entity_id: switch.washing_machine_mains
+  - service: climate.set_operation_mode
+    entity_id: climate.living_room
+    data:
+      operation_mode: 'off'
+  - service: light.turn_on
+    data:
+      entity_id: light.stairwell
+      brightness: 254
+  - service: light.turn_on
+    data:
+      entity_id: light.outside
+      brightness: 254
+  - service: notify.telegram
+    data:
+      message: "SMOKE DETECTED!! Home Assistant has attempted to switch the heating and washing machine OFF and to switch the outside lights ON."
