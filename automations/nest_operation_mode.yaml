@@ -3,8 +3,7 @@
   trigger:
   - platform: state
     entity_id: group.tracker_ross
-    from: 'Away'
-    to: 'Home'
+    to: 'home'
   action:
   - service: climate.set_away_mode
     entity_id: climate.living_room
@@ -17,10 +16,7 @@
   trigger:
   - platform: state
     entity_id: group.tracker_ross
-    from: 'Away'
-    to: 'Home'
-    for:
-      minutes: 1
+    to: 'home'
   condition:
   - condition: template
     value_template: '{{ states.climate.living_room.attributes.operation_mode == "eco" }}'
@@ -35,10 +31,7 @@
   trigger:
   - platform: state
     entity_id: group.tracker_ross
-    from: 'Home'
-    to: 'Away'
-    for:
-      minutes: 1
+    to: 'away'
   action:
   - service: climate.set_away_mode
     entity_id: climate.living_room
@@ -51,10 +44,7 @@
   trigger:
   - platform: state
     entity_id: group.tracker_ross
-    from: 'Home'
-    to: 'Away'
-    for:
-      minutes: 3
+    to: 'away'
   condition:
   - condition: template
     value_template: '{{ states.climate.living_room.attributes.operation_mode == "heat" }}'
