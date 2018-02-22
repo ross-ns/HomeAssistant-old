@@ -1,3 +1,7 @@
 - platform: owntracks
   max_gps_accuracy: 200
   waypoints: false
+
+- platform: mqtt
+  devices:
+    ross_keys: "ibeacon/00001803-494c-4f47-4943-544543480000"

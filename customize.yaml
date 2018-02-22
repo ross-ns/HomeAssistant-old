@@ -1,4 +1,4 @@
-sensor.tracker_ross:
+group.tracker_ross:
   entity_picture: /local/ross.jpg
 sun.sun:
   friendly_name: Sun

@@ -14,8 +14,8 @@
       - thu
       - fri
     - condition: state
-      entity_id: sensor.tracker_ross
-      state: 'Home'
+      entity_id: group.tracker_ross
+      state: 'home'
     - condition: template
       value_template: '{{ states.climate.living_room.attributes.operation_mode == "heat" }}'
   action:
@@ -45,8 +45,8 @@
     - condition: template
       value_template: '{{ states.climate.living_room.attributes.operation_mode == "heat" }}'      
     - condition: state
-      entity_id: sensor.tracker_ross
-      state: 'Home'
+      entity_id: group.tracker_ross
+      state: 'home'
   action:
   - service: climate.set_temperature
     entity_id: climate.living_room

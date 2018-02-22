@@ -95,7 +95,7 @@ scenes:
 people:
   name: People
   entities:
-  - sensor.tracker_ross
+  - group.tracker_ross
   - binary_sensor.bayesian_presence
   - sensor.ross_travel_time
   - sensor.distance_from_home
@@ -159,5 +159,5 @@ washing_machine:
 tracker_ross:
   name: Ross
   entities:
-  - binary_sensor.ross_keys
+  - device_tracker.ross_keys
   - device_tracker.ross_phone

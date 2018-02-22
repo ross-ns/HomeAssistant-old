@@ -5,7 +5,7 @@
     to: 'Occupied'
   condition:
   - condition: state
-    entity_id: sensor.tracker_ross
+    entity_id: group.tracker_ross
     state: 'Away'
   action:
   - service: notify.telegram

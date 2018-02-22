@@ -2,7 +2,7 @@
 - alias: Nest - home mode when home
   trigger:
   - platform: state
-    entity_id: sensor.tracker_ross
+    entity_id: group.tracker_ross
     from: 'Away'
     to: 'Home'
   action:
@@ -16,7 +16,7 @@
 - alias: Heating - switch to heat when home
   trigger:
   - platform: state
-    entity_id: sensor.tracker_ross
+    entity_id: group.tracker_ross
     from: 'Away'
     to: 'Home'
     for:
@@ -34,7 +34,7 @@
 - alias: Nest - away mode when out
   trigger:
   - platform: state
-    entity_id: sensor.tracker_ross
+    entity_id: group.tracker_ross
     from: 'Home'
     to: 'Away'
     for:
@@ -50,7 +50,7 @@
 - alias: Heating - switch to eco when away
   trigger:
   - platform: state
-    entity_id: sensor.tracker_ross
+    entity_id: group.tracker_ross
     from: 'Home'
     to: 'Away'
     for:

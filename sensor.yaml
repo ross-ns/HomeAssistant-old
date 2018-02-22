@@ -80,6 +80,7 @@
         mdi:alert-circle-outline
         {%- endif -%}
 
+    # Lights
     outside_light:
       value_template: '{{ states.light.outside.state }}'
       friendly_name: 'Outside light'
@@ -140,6 +141,7 @@
         mdi:alert-circle-outline
         {%- endif -%}
 
+    # Room occupancy
     study_pir:
       value_template: >
         {%- if states.input_boolean.study_pir.state == "on" -%}
@@ -215,34 +217,37 @@
         mdi:checkbox-marked
         {%- endif -%}
 
-    # This is just for the front end and debugging - remove when finished
-    washing_machine_power:
-      friendly_name: 'Washing machine power'
-      value_template: '{{ states.switch.washing_machine.attributes.current_power_w }}'
-
+    # Washing machine
     washing_machine_state:
+      friendly_name: State
       value_template: >
-        {% if (states.switch.washing_machine.attributes.current_power_w | float > 0.2) and (states.switch.washing_machine.attributes.current_power_w | float < 3.0) %}
+        {% if (states.switch.washing_machine_mains.attributes.current_power_w | float > 0.2) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 3.0) %}
         idle
-        {% elif (states.switch.washing_machine.attributes.current_power_w | float > 2.0) %}
+        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 2.0) %}
         running
         {% else %}
         off
         {% endif %}
 
     washing_machine:
-      friendly_name: 'Washing machine'
+      friendly_name: Washing machine state
       value_template: '{{ states.input_select.washing_machine_status.state }}'
       icon_template: mdi:washing-machine
 
-    # Test tracking sensor
-    tracker_ross:
-      friendly_name: 'Ross'
-      value_template: >
-        {% if states.group.tracker_ross.state == 'on' %}
-        Home
-        {% elif states.group.tracker_ross.state == 'off' %}
-        Away
-        {% else %}
-        n/a
-        {% endif %}
+    washing_machine_current_power:
+      friendly_name: Current power draw
+      unit_of_measurement: W
+      value_template: '{{ states.switch.washing_machine_mains.attributes.current_power_w | round(0) }}'
+      icon_template: mdi:gauge      
+ 
+    washing_machine_today_power:
+      friendly_name: Todays power consumption
+      unit_of_measurement: kWh
+      value_template: '{{ states.switch.washing_machine_mains.attributes.today_energy_kwh | round(1) }}'
+      icon_template: mdi:gauge
+
+    washing_machine_total_power:
+      friendly_name: Total power consumption
+      unit_of_measurement: kWh
+      value_template: '{{ states.switch.washing_machine_mains.attributes.total_energy_kwh | round(1) }}'
+      icon_template: mdi:gauge
