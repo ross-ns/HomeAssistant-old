@@ -48,6 +48,7 @@
     data:
       message: "Remember: you have left the heating off!"
 
+# The 1 hour delay is because on snowy days the forecast sensor will change to and from snow throughout the day, result being message spam
 - alias: Weather - Send me a photo if it's snowing
   trigger:
   - platform: state
@@ -62,3 +63,8 @@
         photo:
           url: http://92.19.208.243:8080/snaprandom?1509009874143
           caption: Look's like it's snowing at home!
+  - service: automation.turn_off
+    entity_id: automation.weather__send_me_a_photo_if_its_snowing
+  - delay: 1:0
+  - service: automation.turn_on
+    entity_id: automation.weather__send_me_a_photo_if_its_snowing
