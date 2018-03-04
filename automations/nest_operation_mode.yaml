@@ -1,15 +1,3 @@
-# The Nest home/away mode does not change the operation mode (heat, eco, off). Separate automation for this below.
-- alias: Nest - home mode when home
-  trigger:
-  - platform: state
-    entity_id: group.tracker_ross
-    to: 'home'
-  action:
-  - service: climate.set_away_mode
-    entity_id: climate.living_room
-    data:
-      away_mode: false
-
 # The condition below ensures that the system is in eco mode before switching to heat.
 # This avoids switching the system to heat when it has been manually set to off (and if already heat, do nothing).
 - alias: Heating - switch to heat when home
@@ -21,22 +9,14 @@
   - condition: template
     value_template: '{{ states.climate.living_room.attributes.operation_mode == "eco" }}'
   action:
+  - service: climate.set_away_mode
+    entity_id: climate.living_room
+    data:
+      away_mode: false  
   - service: climate.set_operation_mode
     entity_id: climate.living_room
     data:
       operation_mode: heat
-
-# The Nest home/away mode does not change the operation mode (heat, eco, off). Separate automation for this below.
-- alias: Nest - away mode when out
-  trigger:
-  - platform: state
-    entity_id: group.tracker_ross
-    to: 'away'
-  action:
-  - service: climate.set_away_mode
-    entity_id: climate.living_room
-    data:
-      away_mode: true
 
 # The condition below ensures that the system is in heat mode before switching to eco.
 # This avoids switching the system to eco when it has been manually set to off (and if already eco, do nothing).
@@ -44,11 +24,17 @@
   trigger:
   - platform: state
     entity_id: group.tracker_ross
-    to: 'away'
+    to: 'not_home'
+    for:
+      minutes: 5
   condition:
   - condition: template
     value_template: '{{ states.climate.living_room.attributes.operation_mode == "heat" }}'
   action:
+  - service: climate.set_away_mode
+    entity_id: climate.living_room
+    data:
+      away_mode: true  
   - service: climate.set_operation_mode
     entity_id: climate.living_room
     data:
