@@ -21,7 +21,6 @@
     data:
       temperature: 22
 
-
 - alias: Heating - raise temp weekend when I get up
   initial_state: false
   trigger:
