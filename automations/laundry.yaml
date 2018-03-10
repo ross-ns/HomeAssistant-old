@@ -35,7 +35,7 @@
 # Washing. As the machine's power draw fluctuates greatly during a cycle, ensure that it was previously Idle before
 # setting Washing state. 
 # If the machine is switched on and a cycle started between HA polling the plug, immediatley set to Washing. 
-- alias: Washing machine - washing
+- alias: Washing machine - running
   trigger:
   - platform: state
     entity_id: sensor.washing_machine_state
@@ -49,7 +49,31 @@
   - service: input_select.select_option
     data:
       entity_id: input_select.washing_machine_status
+      option: Running
+
+- alias: Washing machine - washing
+  trigger:
+  - platform: state
+    entity_id: sensor.washing_machine_state
+    from: "running"
+    to: "washing"
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
       option: Washing
+
+- alias: Washing machine - drying
+  trigger:
+  - platform: state
+    entity_id: sensor.washing_machine_state
+    from: "running"
+    to: "drying"
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.washing_machine_status
+      option: Drying    
 
 # Finished. To ensure the machine has finished, wait for 2 minutes before setting Finished. This is because Idle power levels
 # can be drawn during a cycle. Furthermore, Finished should only be set once the door is ready to be opened.

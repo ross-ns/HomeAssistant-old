@@ -3,6 +3,7 @@ washing_machine_status:
   options:
     - "Off"
     - Idle
+    - Running
     - Washing
     - Drying
     - Finished

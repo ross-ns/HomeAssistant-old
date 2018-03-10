@@ -217,18 +217,23 @@
         mdi:checkbox-marked
         {%- endif -%}
 
-    # Washing machine
+    # Washing machine logic
     washing_machine_state:
       friendly_name: State
       value_template: >
         {% if (states.switch.washing_machine_mains.attributes.current_power_w | float > 0.2) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 3.0) %}
         idle
-        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 2.0) %}
+        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 3.0) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 200.0) %}
         running
+        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 200.0) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 1650.0) %}
+        drying
+        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 1650.0) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 2100.0) %}
+        washing
         {% else %}
         off
         {% endif %}
 
+    # The following washing machine sensors are only used to display data on the front end
     washing_machine:
       friendly_name: Washing machine state
       value_template: '{{ states.input_select.washing_machine_status.state }}'
