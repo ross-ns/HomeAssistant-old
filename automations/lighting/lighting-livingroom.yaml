@@ -77,7 +77,7 @@
   trigger:
   - platform: state
     entity_id: light.tv_leds
-    from: 'unavailable'
+    to: 'available'
     for:
       seconds: 10
   condition:
@@ -99,7 +99,7 @@
   trigger:
   - platform: state
     entity_id: light.tv_leds
-    from: 'unavailable'
+    to: 'available'
     for:
       seconds: 10
   condition:
