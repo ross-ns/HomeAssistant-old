@@ -12,7 +12,6 @@ occupancy:
   view: yes
   entities:
   - group.people
-  - group.tracker_ross
   - group.pets
   - group.rooms
 
@@ -66,8 +65,6 @@ status_group:
   - sensor.raspberry_pi
 # - sensor.living_room_chromecast - Add this back in when Chromecast discovery is fixed
   - sensor.uptime
-# - sensor.time
-# - sensor.date
 
 living_room_lights:
   name: Living room lights
@@ -96,19 +93,12 @@ people:
   name: People
   entities:
   - group.tracker_ross
-  - binary_sensor.bayesian_presence
   - sensor.ross_travel_time
   - sensor.distance_from_home
 
 pets:
   name: Pets
   entities:
-
-# time_date:
-#   name: Time and date
-#   entities:
-#   - sensor.time
-#   - sensor.date
 
 media_players:
   name: Media players
