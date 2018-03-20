@@ -6,7 +6,7 @@
   condition:
   - condition: state
     entity_id: group.tracker_ross
-    state: 'Away'
+    state: 'not_home'
   action:
   - service: notify.telegram
     data_template:
