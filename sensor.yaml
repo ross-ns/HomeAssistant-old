@@ -225,9 +225,9 @@
         idle
         {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 3.0) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 200.0) %}
         running
-        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 200.0) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 1650.0) %}
+        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 200.0) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 1550.0) %}
         drying
-        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 1650.0) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 2100.0) %}
+        {% elif (states.switch.washing_machine_mains.attributes.current_power_w | float > 1550.0) and (states.switch.washing_machine_mains.attributes.current_power_w | float < 2100.0) %}
         washing
         {% else %}
         off
