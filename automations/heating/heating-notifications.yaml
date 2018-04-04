@@ -27,7 +27,7 @@
   trigger:
   - platform: state
     entity_id: group.tracker_ross
-    to: 'away'
+    to: 'not_home'
     for:
       minutes: 30
   condition:
