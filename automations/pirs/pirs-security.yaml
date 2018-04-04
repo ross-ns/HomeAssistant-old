@@ -22,3 +22,9 @@
         {% else %}
         Activity detected at home!
         {% endif %}
+  - service: automation.turn_off
+    entity_id: automation.security__notify_of_activity_if_in_away_mode
+  - delay: 5:0
+  - service: automation.turn_on
+    entity_id: automation.security__notify_of_activity_if_in_away_mode
+        
