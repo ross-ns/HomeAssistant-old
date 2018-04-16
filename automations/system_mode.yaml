@@ -3,7 +3,7 @@
   - platform: time
     at: '23:30'    
   - platform: state
-    entity_id: sensor.living_room_pir, sensor.study_room_pir
+    entity_id: sensor.living_room_pir, sensor.study_pir
     to: 'Unoccupied'
   condition:
     condition: and
@@ -32,3 +32,18 @@
     data:
       title: "Home Assistant"
       message: "Lights off and heating set to low"
+  - service: automation.turn_off
+    entity_id: automation.bedtime
+
+- alias: Daytime
+  trigger:
+  - platform: state 
+    entity_id: sensor.kitchen_pir
+    to: 'Occupied'
+  condition: 
+  - condition: state
+    entity_id: automation.bedtime
+    state: 'off'
+  action:
+  - service: automation.turn_on
+    entity_id: automation.bedtime
