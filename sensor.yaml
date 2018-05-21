@@ -53,7 +53,7 @@
     heating_mode:
       value_template: '{{ states.climate.living_room.attributes.operation_mode }}'
       friendly_name: 'Heating mode'
-      icon_template: 'mdi:nest-thermostat'
+      icon_template: 'mdi:thermostat'
 
     nest_away_mode:
       value_template: '{{ states.climate.living_room.attributes.away_mode }}'
@@ -75,7 +75,7 @@
       friendly_name: Smoke/CO² detector
       icon_template: >
         {%- if states.binary_sensor.hallway_nest_protect_online.state == "on" -%}
-        mdi:nest-protect
+        mdi:smoke-detector
         {%- else -%}
         mdi:alert-circle-outline
         {%- endif -%}
