@@ -99,6 +99,8 @@
     data:
       title: "Home Assistant"
       message: "Washing machine has finished"
+      data:
+        displaytime: 3500
   - delay:
       seconds: 5
   - service: switch.turn_on
