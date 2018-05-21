@@ -250,9 +250,3 @@
       unit_of_measurement: kWh
       value_template: '{{ states.switch.washing_machine_mains.attributes.today_energy_kwh | round(1) }}'
       icon_template: mdi:gauge
-
-    washing_machine_total_power:
-      friendly_name: Total power consumption
-      unit_of_measurement: kWh
-      value_template: '{{ states.switch.washing_machine_mains.attributes.total_energy_kwh | round(1) }}'
-      icon_template: mdi:gauge
