@@ -143,7 +143,6 @@ washing_machine:
   - sensor.washing_machine
   - sensor.washing_machine_current_power
   - sensor.washing_machine_today_power
-  - sensor.washing_machine_total_power
 
 # Tracker groups
 tracker_ross:
